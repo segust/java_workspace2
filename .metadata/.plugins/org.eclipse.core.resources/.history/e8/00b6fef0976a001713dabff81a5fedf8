@@ -1,0 +1,273 @@
+package model;
+
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.*;
+import java.util.Map.Entry;
+
+/**
+ * @author
+ * @date 2017年7月14日 上午9:25:39
+ * @parameter
+ */
+public class RegularPointstmp {
+
+	ResultSet rs = null;
+
+	public RegularPointstmp(ResultSet rs) {
+		this.rs = rs;
+	}
+
+	@SuppressWarnings("deprecation")
+	public void getRegularPoints() {
+		try {
+
+			String currentlocation;
+			Timestamp currenttime = null;
+			BigDecimal currentlat;
+			BigDecimal currentlng;
+			BigDecimal currentrate = null;
+
+			String lastlocation;
+			Timestamp lasttime = null;
+			BigDecimal lastlat;
+			BigDecimal lastlng;
+
+			Map<String, Integer> workdaystayMap = new HashMap<String, Integer>();
+			Map<String, Integer> weekendstayMap = new HashMap<String, Integer>();
+			Map<String, Integer> holidaystayMap = new HashMap<String, Integer>();
+
+			Map<String, Integer> workdaypassMap = new HashMap<String, Integer>();
+			Map<String, Integer> weekendpassMap = new HashMap<String, Integer>();
+			Map<String, Integer> holidaypassMap = new HashMap<String, Integer>();
+
+			rs.next();
+
+			String templetlocation = rs.getString("pass_port_name");
+			BigDecimal templetrate = BigDecimal.ZERO;
+
+			lastlocation = rs.getString("pass_port_name");
+			lasttime = rs.getTimestamp("pass_time");
+			lastlat = new BigDecimal(rs.getString("lat"));
+			lastlng = new BigDecimal(rs.getString("lng"));
+
+			if (lasttime.getDate() == 1) {
+				holidaypassMap.put(lastlocation, 1);
+			} else if (lasttime.getDate() % 7 == 0 || lasttime.getDate() % 7 == 6) {
+				weekendpassMap.put(lastlocation, 1);
+			} else {
+				workdaypassMap.put(lastlocation, 1);
+			}
+
+			while (rs.next()) {
+				currentlocation = rs.getString("pass_port_name");
+				currenttime = rs.getTimestamp("pass_time");
+				currentlat = new BigDecimal(rs.getString("lat"));
+				currentlng = new BigDecimal(rs.getString("lng"));
+				if (currenttime.getTime() != lasttime.getTime())
+					currentrate = (currentlat.subtract(lastlat).pow(2)).add(currentlng.subtract(lastlng).pow(2))
+							.divide(new BigDecimal(currenttime.getTime() - lasttime.getTime()), 3);
+				if (currenttime.getDate() == 1) {
+
+					if (!holidaypassMap.containsKey(currentlocation)) {
+						holidaypassMap.put(currentlocation, 1);
+					} else {
+						int n = holidaypassMap.get(currentlocation);
+						holidaypassMap.put(currentlocation, n);
+					}
+
+					if (currenttime.getDate() != lasttime.getDate()) {
+						if (!holidaystayMap.containsKey(templetrate)) {
+							holidaystayMap.put(templetlocation, 1);
+						} else {
+							int n = holidaystayMap.get(templetlocation);
+							holidaystayMap.put(templetlocation, n++);
+						}
+						templetlocation = currentlocation;
+						templetrate = BigDecimal.ZERO;
+					} else if (currentrate.compareTo(templetrate) == -1) {
+						templetlocation = lastlocation;
+						templetrate = currentrate;
+					}
+					lastlocation = currentlocation;
+					lasttime = currenttime;
+					lastlat = currentlat;
+					lastlng = currentlng;
+
+				} else if (currenttime.getDate() % 7 == 0 || currenttime.getDate() % 7 == 6) {
+
+					if (!workdaypassMap.containsKey(currentlocation)) {
+						workdaypassMap.put(currentlocation, 1);
+					} else {
+						int n = workdaypassMap.get(currentlocation);
+						workdaypassMap.put(currentlocation, n);
+					}
+
+					if (currenttime.getDate() != lasttime.getDate()) {
+						if (!workdaystayMap.containsKey(templetrate)) {
+							workdaystayMap.put(templetlocation, 1);
+						} else {
+							int n = workdaystayMap.get(templetlocation);
+							workdaystayMap.put(templetlocation, n++);
+						}
+						templetlocation = currentlocation;
+						templetrate = BigDecimal.ZERO;
+					} else if (currentrate.compareTo(templetrate) == -1) {
+						templetlocation = lastlocation;
+						templetrate = currentrate;
+					}
+					lastlocation = currentlocation;
+					lasttime = currenttime;
+					lastlat = currentlat;
+					lastlng = currentlng;
+
+				} else {
+
+					if (!weekendpassMap.containsKey(currentlocation)) {
+						weekendpassMap.put(currentlocation, 1);
+					} else {
+						int n = weekendpassMap.get(currentlocation);
+						weekendpassMap.put(currentlocation, n);
+					}
+
+					if (currenttime.getDate() != lasttime.getDate()) {
+						if (!weekendstayMap.containsKey(templetrate)) {
+							weekendstayMap.put(templetlocation, 1);
+						} else {
+							int n = weekendstayMap.get(templetlocation);
+							weekendstayMap.put(templetlocation, n++);
+						}
+						templetlocation = currentlocation;
+						templetrate = BigDecimal.ZERO;
+					} else if (currentrate.compareTo(templetrate) == -1) {
+						templetlocation = lastlocation;
+						templetrate = currentrate;
+					}
+					lastlocation = currentlocation;
+					lasttime = currenttime;
+					lastlat = currentlat;
+					lastlng = currentlng;
+
+				}
+
+			}
+			rs.beforeFirst();
+
+			Map<String, Integer> tmpMap = new HashMap<String, Integer>();
+
+			System.out.println("工作日常留地点：");
+			for (Entry<String, Integer> e : workdaystayMap.entrySet()) {
+				tmpMap.put(e.getKey(), e.getValue());
+			}
+			boolean isbig1 = true;
+			for (Entry<String, Integer> e : workdaystayMap.entrySet()) {
+				for (Entry<String, Integer> en : tmpMap.entrySet()) {
+					if (e.getValue() < en.getValue())
+						isbig1 = false;
+				}
+				if (isbig1) {
+					tmpMap.remove(e.getKey());
+					System.out.print(e.getKey() + ":" + e.getValue() + "\t");
+				}
+			}
+			tmpMap.clear();
+			System.out.println();
+
+			System.out.println("周末常留地点：");
+			for (Entry<String, Integer> e : weekendstayMap.entrySet()) {
+				tmpMap.put(e.getKey(), e.getValue());
+			}
+			boolean isbig2 = true;
+			for (Entry<String, Integer> e : weekendstayMap.entrySet()) {
+				for (Entry<String, Integer> en : tmpMap.entrySet()) {
+					if (e.getValue() < en.getValue())
+						isbig2 = false;
+				}
+				if (isbig2) {
+					tmpMap.remove(e.getKey());
+					System.out.print(e.getKey() + ":" + e.getValue() + "\t");
+				}
+			}
+			tmpMap.clear();
+			System.out.println();
+
+			System.out.println("假期常留地点：");
+			for (Entry<String, Integer> e : holidaystayMap.entrySet()) {
+				tmpMap.put(e.getKey(), e.getValue());
+			}
+			boolean isbig3 = true;
+			for (Entry<String, Integer> e : holidaystayMap.entrySet()) {
+				for (Entry<String, Integer> en : tmpMap.entrySet()) {
+					if (e.getValue() < en.getValue())
+						isbig3 = false;
+				}
+				if (isbig3) {
+					tmpMap.remove(e.getKey());
+					System.out.print(e.getKey() + ":" + e.getValue() + "\t");
+				}
+			}
+			tmpMap.clear();
+			System.out.println();
+
+			System.out.println("工作日常经过地点：");
+			for (Entry<String, Integer> e : workdaypassMap.entrySet()) {
+				tmpMap.put(e.getKey(), e.getValue());
+			}
+			boolean isbig4 = true;
+			for (Entry<String, Integer> e : workdaypassMap.entrySet()) {
+				for (Entry<String, Integer> en : tmpMap.entrySet()) {
+					if (e.getValue() < en.getValue())
+						isbig4 = false;
+				}
+				if (isbig4) {
+					tmpMap.remove(e.getKey());
+					System.out.print(e.getKey() + ":" + e.getValue() + "\t");
+				}
+			}
+			tmpMap.clear();
+			System.out.println();
+
+			System.out.println("工作日常留地点：");
+			for (Entry<String, Integer> e : workdaystayMap.entrySet()) {
+				tmpMap.put(e.getKey(), e.getValue());
+			}
+			boolean isbig = true;
+			for (Entry<String, Integer> e : workdaystayMap.entrySet()) {
+				for (Entry<String, Integer> en : tmpMap.entrySet()) {
+					if (e.getValue() < en.getValue())
+						isbig = false;
+				}
+				if (isbig) {
+					tmpMap.remove(e.getKey());
+					System.out.print(e.getKey() + "\t");
+				}
+			}
+			tmpMap.clear();
+			System.out.println();
+
+			System.out.println("工作日常留地点：");
+			for (Entry<String, Integer> e : workdaystayMap.entrySet()) {
+				tmpMap.put(e.getKey(), e.getValue());
+			}
+			boolean isbig = true;
+			for (Entry<String, Integer> e : workdaystayMap.entrySet()) {
+				for (Entry<String, Integer> en : tmpMap.entrySet()) {
+					if (e.getValue() < en.getValue())
+						isbig = false;
+				}
+				if (isbig) {
+					tmpMap.remove(e.getKey());
+					System.out.print(e.getKey() + "\t");
+				}
+			}
+			tmpMap.clear();
+			System.out.println();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+}

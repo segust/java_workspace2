@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将类型“hive.HiveJdbcClient”重命名为“HiveBatch”&#x0D;&#x0A;－ 原始项目：“CreateHiveBatch”&#x0D;&#x0A;－ 原始元素：“hive.HiveJdbcClient”&#x0D;&#x0A;－ 重命名的元素：“hive.HiveBatch”&#x0D;&#x0A;－ 更新对已重构元素的引用&#x0D;&#x0A;－ 更新注释和字符串中出现的文本" description="重命名类型“HiveJdbcClient”" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;hive{HiveJdbcClient.java[HiveJdbcClient" matchStrategy="1" name="HiveBatch" qualified="false" references="true" similarDeclarations="false" stamp="1503230828364" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,335 @@
+#content{
+    width: 100%;
+    height:auto;
+    display: block;
+    float: left;
+}
+
+.userinfo-top{
+    width:100%;
+    height:50px;
+    display:block;
+    font-size:30px;
+    background-color:#009999;
+    line-height:50px;
+    margin-top: 20px;
+}
+
+.userinfo-top title{
+    float:left;
+    height:50px;
+    display:block;
+    font-size:30px;
+    line-height:50px;
+    margin-left:40px;
+}
+
+.userinfo-op{
+    height:50px;
+    display:block;
+    text-align:right;
+    margin-right:20px;
+}
+
+.manage-users-info{
+    width:85%;
+    height:auto;
+    display:block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adduser-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    margin-right:10px;
+    cursor:pointer;
+}
+
+.resetuser-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    margin-right:80px;
+    cursor:pointer;
+}
+
+.peruser-info{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border: 1px #009999 solid;
+}
+
+.contract-add-table-head td{
+    background-color:white;
+    width:120px;
+}
+
+.contract-add-table td{
+    border:1px solid black;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.Apply-table td{
+    border:1px solid black;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.contract-add-table-body td{
+    width:120px;
+}
+
+.contract-add-table{
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+    padding: 5px;
+    /* overflow:hidden; */
+}
+
+.search-box{
+	margin:10px;
+	color:black;
+	line-height:25px;
+	font-size:15px;
+	text-align: left;
+}
+
+.search-box span{
+	margin-left: 10px;
+	font-size: 16px;
+}
+
+.search-box input[type="text"],[type="select"]{
+	width:100px;
+}
+
+.search-btn{
+	border:0px;
+	background-color:#3CB371;
+	color:white;
+	width:80px;
+	height:25px;
+	font-weight:bold;
+	margin-left:5px;
+	line-height:25px;
+}
+
+.search-btn:hover{
+	cursor:pointer;
+	background-color: #009933;
+}
+
+.add-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:80px;
+    height:25px;
+    font-weight:bold;
+    margin-left:5px;
+}
+
+.return-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:80px;
+    height:25px;
+    font-weight:bold;
+    margin-left:5px;
+}
+
+.setTem{
+	width:70px;
+}
+
+#contract-table {
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+    border:1px solid green;
+}
+
+.Apply-head td{
+	color:white;
+	border:1px solid green;
+	background:#009966;
+}
+
+.contract-table  th{
+    background-color:#669966; 
+    padding:5px;
+    width:100px;
+    border:1px solid green;
+    
+}
+
+#contract-table td,th{
+	border:1px solid green;
+    text-align:center;
+    vertical-align:middle;
+}
+
+#contract-table th{
+	/*border:1px solid black;*/
+	color: white;	
+}
+
+#contract-table td{
+	/*border:1px solid black;*/
+	padding:7px;
+	width: auto;
+}
+
+.contract-table a{
+    font-size: 13px;
+}
+
+.contract-table a:hover{
+	color:red;
+}
+
+#contract-table-box{
+    margin:20px auto;
+    width:90%;
+    min-width:800px;
+}
+
+.sang_Calender{
+    background:url("/6905/img/calendar.png") no-repeat scroll right center transparent;
+    cursor: pointer;
+    background-color:#FFFFFF;
+}
+  
+.button-div{
+    width:80%;
+    min-width:800px;
+  	margin:10px auto;
+  	text-align:right;
+}
+#whole{
+	width:100%;
+    height:100%;
+	background-color:#E4E4E4;
+	position:absolute;
+	z-index:10;
+	filter:alpha(opacity=60);
+	-moz-opacity:0.4; 
+    opacity: 0.4; 
+    display:none; }
+#borrow_In{
+	position: absolute;
+  z-index: 15;
+  top: 260px;
+  left: 200px;
+  background: white;
+  width: 1100px;
+  overflow-x: scroll;
+  display: none;
+}
+#borrow_Out{
+	position: absolute;
+  z-index: 15;
+  top: 260px;
+  left: 200px;
+  background: white;
+  width: 1100px;
+  overflow-x:scroll;
+  display: none;
+}
+#new_In{
+  position: absolute;
+  z-index: 15;
+  top: 260px;
+  left: 200px;
+  background: white;
+  height:300px;
+  width: 1100px;
+  overflow: scroll;
+  display: none;
+}
+
+#sure_new_In,#sure_borrow_In,#sure_update,#sure_borrow_Out{
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #3CB371;
+	width: 80px;
+	height:25px;
+	border:none;
+	color: white;
+	font-weight: bold;
+}
+
+#sure_new_In:hover,#sure_borrow_In:hover,#sure_update:hover{
+	cursor:pointer;
+	background-color: #009933;
+}
+
+#update{
+	position: absolute;
+  z-index: 15;
+  top: 260px;
+  left: 200px;
+  background: white;
+  width: 1100px;
+  overflow-x: scroll;
+  display: none;
+}
+
+.table-wrap{
+    width:80%;
+    min-width:800px;
+    margin:10% auto;
+}
+
+.table-wrap-detail{
+	width:80%;
+    min-width:800px;
+    margin:100px 0px 0px 20px;
+}
+.table-wrap table,.table-wrap-detail table{
+    border-collapse:collapse;
+    margin:0 auto;
+}
+.table-wrap a{
+    text-decoration:none;
+    color:black;
+    border:1px solid #009966;
+    padding:0 2px;
+}
+
+.table-wrap a:hover{
+    background-color:#009966;
+}
+.table-wrap a:hover{
+    color:white;
+}
+.table-wrap table td,.table-wrap table th{
+    border:1px solid green;
+    padding:5px 10px;
+}
+
+.table-wrap-detail table td,.table-wrap-detail table th{
+	border:1px solid green;
+    padding:5px 10px;
+}
+
+#type{
+	display:none;
+}

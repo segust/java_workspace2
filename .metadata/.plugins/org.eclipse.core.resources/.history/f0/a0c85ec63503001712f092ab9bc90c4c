@@ -1,0 +1,20 @@
+package Start;
+
+import java.util.*;
+
+import model.SMS;
+import model.Words;
+
+public class Training {
+
+	ArrayList<SMS> SMSList = new ArrayList<SMS>();
+	HashMap<Words, String> WordsList = new HashMap<Words, String>();
+
+	public Training(ArrayList<SMS> SMSList) {
+		this.SMSList = SMSList;}
+
+	for(
+
+	SMS SMS:SMSList)
+	{
+	}

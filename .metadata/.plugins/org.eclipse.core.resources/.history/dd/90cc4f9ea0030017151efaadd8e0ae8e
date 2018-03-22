@@ -1,0 +1,38 @@
+package Start;
+
+import java.util.*;
+
+import model.SMS;
+import model.Words;
+
+public class Training {
+	int SpamNum;
+	int HamNum;
+	ArrayList<SMS> SMSList = new ArrayList<SMS>();
+	ArrayList<Words> WordRate = new ArrayList<Words>();
+	HashMap<String, Double> WordsMap = new HashMap<String, Double>();
+
+	public Training(ArrayList<SMS> SMSList) {
+		this.SMSList = SMSList;
+	}
+
+	public int getNum(ArrayList<SMS> SMSList) {
+
+		return SMSList.size();
+
+	}
+
+	public HashMap<String, Double> getWordsMap() {
+
+		for (SMS SMS : SMSList) {
+			String Content = SMS.getContent().replaceAll("\\pP", "");
+			String[] Words = Content.split(" ");
+			for (String Word : Words) {
+				if (WordRate.get(Word) == null) {
+					WordsMap.put(Word, 1);
+				}
+			}
+		}
+	}
+
+}

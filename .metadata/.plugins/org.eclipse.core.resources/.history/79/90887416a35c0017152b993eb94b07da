@@ -1,0 +1,6 @@
+package model;
+
+public class pass_port {
+	int num = 0;
+	String id;
+}

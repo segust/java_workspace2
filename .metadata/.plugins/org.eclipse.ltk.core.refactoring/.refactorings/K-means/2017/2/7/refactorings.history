@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;wine.txt&apos; to &apos;algorithm/src/algorithm&apos;&#x0D;&#x0A;- Original project: &apos;algorithm&apos;&#x0D;&#x0A;- Destination element: &apos;algorithm/src/algorithm&apos;&#x0D;&#x0A;- Original element: &apos;wine.txt&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="/src&lt;algorithm" element1="src/wine.txt" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1487418556675" units="0" version="1.0"/>
+</session>

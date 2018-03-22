@@ -1,0 +1,17 @@
+package model;
+
+import java.util.*;
+
+public class RelationRules {
+	ArrayList<Set<Integer>> FrequentList = new ArrayList<Set<Integer>>();
+
+	public RelationRules(ArrayList<Set<Integer>> FrequentList) {
+		this.FrequentList = FrequentList;
+	}
+
+	// 获取真子集
+	HashSet<Set<Integer>> getProperSubset(Set<Integer> oriSet) {
+		HashSet<Set<Integer>> ProperSubset = new HashSet<Set<Integer>>();
+		return ProperSubset;
+	}
+}

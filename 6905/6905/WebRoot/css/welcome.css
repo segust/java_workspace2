@@ -1,0 +1,24 @@
+.welcome-wrap{
+	width:0;
+
+	border:1px solid #009966;
+	margin:50px auto;
+	color:black;
+}
+
+.welcome-wrap p{
+	text-align:center;
+	font-size:30px;
+	margin-top:60px;
+	display:none;
+}
+.welcome-wrap p span{color:#009966;}
+.welcome-wrap p:first-child{
+	height:50px;
+	line-height:50px;
+	color:black;
+	font-size:20px;
+	margin-top:60px;
+}
+
+

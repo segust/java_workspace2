@@ -1,0 +1,101 @@
+package model;
+
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+/**
+ * @author
+ * @date 2017年7月16日 下午3:26:22
+ * @parameter
+ */
+public class Locationtmp {
+	String license_no;
+
+	ResultSet rs = null;
+
+	public Locationtmp(ResultSet rs) {
+		this.rs = rs;
+	}
+
+	@SuppressWarnings("deprecation")
+	public void getLocation() {
+		String currentlocation;
+		Timestamp currenttime = null;
+		BigDecimal currentlat;
+		BigDecimal currentlng;
+		BigDecimal currentrate = null;
+
+		String lastlocation;
+		BigDecimal lastrate;
+		Timestamp lasttime = null;
+		BigDecimal lastlat;
+		BigDecimal lastlng;
+		Map<String, Integer> locationMap = new HashMap<String, Integer>();
+		rs.next();
+
+		String templetlocation = rs.getString("pass_port_name");
+		BigDecimal templetrate = BigDecimal.ZERO;
+
+		lastlocation = rs.getString("pass_port_name");
+		lastrate = BigDecimal.ZERO;
+		lasttime = rs.getTimestamp("pass_time");
+		lastlat = new BigDecimal(rs.getString("lat"));
+		lastlng = new BigDecimal(rs.getString("lng"));
+
+		System.out.println("回家以及上班时间：");
+		while (rs.next()) {
+			currentlocation = rs.getString("pass_port_name");
+			currenttime = rs.getTimestamp("pass_time");
+			currentlat = new BigDecimal(rs.getString("lat"));
+			currentlng = new BigDecimal(rs.getString("lng"));
+			if (currenttime.getTime() != lasttime.getTime())
+				currentrate = (currentlat.subtract(lastlat).pow(2)).add(currentlng.subtract(lastlng).pow(2))
+						.divide(new BigDecimal(currenttime.getTime() - lasttime.getTime()), 3);
+			if (currenttime.getDate() != lasttime.getDate()) {
+				System.out.print(lasttime + " - ");
+				System.out.print(currenttime + "\t");
+				if (!locationMap.keySet().contains(templetlocation)) {
+					locationMap.put(templetlocation, 1);
+				} else {
+					int n = locationMap.get(templetlocation);
+					locationMap.put(templetlocation, n++);
+				}
+				templetlocation = currentlocation;
+				templetrate = BigDecimal.ZERO;
+			}
+			if (currentrate.compareTo(templetrate) == -1) {
+				templetlocation = lastlocation;
+				templetrate = lastrate;
+			}
+			lastlocation = currentlocation;
+			lastrate = currentrate;
+			lasttime = currenttime;
+			lastlat = currentlat;
+			lastlng = currentlng;
+
+		}
+		System.out.println("\n经常停留的地点：");
+		for (Entry<String, Integer> en : locationMap.entrySet()) {
+			System.out.print(en.getKey() + "\t");
+		}
+		// Map<String, Integer> tmpMap = new HashMap<String, Integer>();
+		// for (Entry<String, Integer> en : locationMap.entrySet()) {
+		// tmpMap.put(en.getKey(), en.getValue());
+		// }
+		// boolean isbig = false;
+		// for (Entry<String, Integer> e : locationMap.entrySet()) {
+		// for (Entry<String, Integer> en : tmpMap.entrySet()) {
+		// if (e.getValue() >= en.getValue())
+		// isbig = true;
+		// }
+		// if (isbig) {
+		// tmpMap.remove(e.getKey());
+		// }
+		// }
+	}
+
+}

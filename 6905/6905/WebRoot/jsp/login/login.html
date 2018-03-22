@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>登录界面</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../css/login.css">
+<link rel="stylesheet" href="../../ConstantHTML/css/xcConfirm.css">
+</head>
+<body onkeydown="keydownEvent();">
+	<div class="header">
+		<p>阅淘网后台管理系统</p>
+	</div>
+	<div class="content">
+		<div class="login-wrap">
+			<h1 class="login-title">登录系统</h1>
+			<fieldset>
+				<form class="login-form" action="../../UserLoginServlet"
+					method="post">
+					<div class="name-wrap">
+						<label for="name">用户名</label>
+						<div class="input-name-wrap">
+							<input id="name" name="identifyNum" type="text">
+						</div>
+					</div>
+					<div class="password-wrap">
+						<label for="name">密码</label>
+						<div class="input-psd-wrap">
+							<input id="password" name="password" type="password">
+						</div>
+					</div>
+					<div class="enter">
+						<input class="submit-btn btn-success btn" name="submit"
+							type="button"
+							value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录"
+							onclick="validateUser();">
+					</div>
+				</form>
+			</fieldset>
+		</div>
+	</div>
+	<script src="../../js/jquery-1.9.1.min.js"></script>
+	<script src="../../js/login.js"></script>
+	<script src="../../ConstantHTML/js/xcConfirm.js"></script>
+</body>
+</html>

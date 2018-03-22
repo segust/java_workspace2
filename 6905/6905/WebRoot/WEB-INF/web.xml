@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name></display-name>
+	
+	
+	<!-- 先进入登录页面-->
+	<welcome-file-list>
+		<welcome-file>
+			jsp/login/login.html
+		</welcome-file>
+	</welcome-file-list>
+	
+	
+	<!-- 配置版本号，可选1、2、3、4 -->
+	<!-- 这是通过配置全局变量来设置 -->
+	<context-param>
+		<param-name>version</param-name>
+		<param-value>1</param-value>
+	</context-param>
+	
+	
+	<!-- 配置库房位置，记录温湿度 -->
+	<context-param>
+		<param-name>warehouseLocation</param-name>
+		<param-value>A区</param-value>
+	</context-param>
+	
+	
+	<!-- 配置是否需要传感器记录 -->
+	<context-param>
+		<param-name>sensor</param-name>
+		<param-value>1</param-value>
+	</context-param>
+	
+	
+	<!-- 配置传感器隔多久记录一次，以小时为单位-->
+	<context-param>
+		<param-name>timeInterval</param-name>
+		<param-value>2</param-value>
+	</context-param>
+	
+	
+	<!-- 字符过滤器，编码格式:utf-8 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>cn.edu.cqupt.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	
+	<!-- 检查登录过滤器 -->
+	<filter>
+		<filter-name>CheckLoginFilter</filter-name>
+		<filter-class>cn.edu.cqupt.filter.CheckLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CheckLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- 设置session过期时间 -->
+	<!-- 
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config> 
+	-->
+	
+	
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>test.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ContractHandleServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.ContractHandleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ProductHandleServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.ProductHandleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>InfoServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.qualification_management.InfoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Maintain</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.storage_maintenanc.MaintainServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddBatchInApplyServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.AddBatchInApplyServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>InspectServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.storage_maintenanc.InspectServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QualifyServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.qualification_management.QualifyServlet</servlet-class>
+	</servlet>
+	
+	
+	<servlet>
+		<description>for user login</description>
+		<display-name>userlog</display-name>
+		<servlet-name>UserLoginServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.user_management.UserLoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>AddInApplyServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.AddInApplyServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>DemoServlet</servlet-name>
+		<servlet-class>test.DemoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.user_management.UserServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>FareServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.fare_management.FareServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>TemperatureServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.warehouse_management.TemperatureServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>HumidityServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.warehouse_management.HumidityServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>InWarehouseServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.InWarehouseServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>OutWarehouseServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.OutWarehouseServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>BorrowServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.BorrowServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UpdateServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.UpdateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ApplyHandleServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.ApplyHandleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ProductQueryServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.query_business.ProductQueryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>StatisticsQueryServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.query_business.StatisticsQueryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UpdateQueryServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.query_business.UpdateQueryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>SystemManagementServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.sys_management.SystemManagementServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>EquipmentServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.statistics.EquipmentServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>PageDemoServlet</servlet-name>
+		<servlet-class>PageDemoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ServiceOfBaseDataServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.sys_management.ServiceOfBaseDataServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ParameterConfigurationServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.sys_management.ParameterConfigurationServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ServiceOf9831Servlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.sys_management.ServiceOf9831Servlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>AlertNewMaintain</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.storage_maintenanc.AlertNewMaintain</servlet-class>
+	</servlet>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeviceServlet</servlet-name>
+    <servlet-class>cn.edu.cqupt.controller.warehouse_management.DeviceServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RepairServlet</servlet-name>
+    <servlet-class>cn.edu.cqupt.controller.warehouse_management.RepairServlet</servlet-class>
+  </servlet>
+    <servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>OutListServlet</servlet-name>
+		<servlet-class>cn.edu.cqupt.controller.transact_business.OutListServlet</servlet-class>
+	</servlet>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserLoginOutServlet</servlet-name>
+    <servlet-class>cn.edu.cqupt.controller.user_management.UserLoginOutServlet</servlet-class>
+  </servlet>
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserLoginServlet</servlet-name>
+		<url-pattern>/UserLoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ContractHandleServlet</servlet-name>
+		<url-pattern>/ContractHandleServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProductHandleServlet</servlet-name>
+		<url-pattern>/ProductHandleServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddInApplyServlet</servlet-name>
+		<url-pattern>/AddInApplyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DemoServlet</servlet-name>
+		<url-pattern>/DemoServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/UserServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FareServlet</servlet-name>
+		<url-pattern>/FareServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TemperatureServlet</servlet-name>
+		<url-pattern>/TemperatureServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HumidityServlet</servlet-name>
+		<url-pattern>/HumidityServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InWarehouseServlet</servlet-name>
+		<url-pattern>/InWarehouseServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OutWarehouseServlet</servlet-name>
+		<url-pattern>/OutWarehouseServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BorrowServlet</servlet-name>
+		<url-pattern>/BorrowServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateServlet</servlet-name>
+		<url-pattern>/UpdateServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApplyHandleServlet</servlet-name>
+		<url-pattern>/ApplyHandleServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProductQueryServlet</servlet-name>
+		<url-pattern>/ProductQueryServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StatisticsQueryServlet</servlet-name>
+		<url-pattern>/StatisticsQueryServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateQueryServlet</servlet-name>
+		<url-pattern>/UpdateQueryServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SystemManagementServlet</servlet-name>
+		<url-pattern>/SystemManagementServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EquipmentServlet</servlet-name>
+		<url-pattern>/EquipmentServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Maintain</servlet-name>
+		<url-pattern>/Maintain</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InspectServlet</servlet-name>
+		<url-pattern>/InspectServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QualifyServlet</servlet-name>
+		<url-pattern>/QualifyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PageDemoServlet</servlet-name>
+		<url-pattern>/PageDemoServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServiceOfBaseDataServlet</servlet-name>
+		<url-pattern>/ServiceOfBaseDataServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddBatchInApplyServlet</servlet-name>
+		<url-pattern>/AddBatchInApplyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ParameterConfigurationServlet</servlet-name>
+		<url-pattern>/ParameterConfigurationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServiceOf9831Servlet</servlet-name>
+		<url-pattern>/ServiceOf9831Servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AlertNewMaintain</servlet-name>
+		<url-pattern>/AlertNewMaintain</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InfoServlet</servlet-name>
+		<url-pattern>/InfoServlet</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeviceServlet</servlet-name>
+        <url-pattern>/DeviceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RepairServlet</servlet-name>
+        <url-pattern>/RepairServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OutListServlet</servlet-name>
+        <url-pattern>/OutListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>UserLoginOutServlet</servlet-name>
+    <url-pattern>/UserLoginOutServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

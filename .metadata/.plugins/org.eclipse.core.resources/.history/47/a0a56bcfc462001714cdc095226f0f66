@@ -1,0 +1,58 @@
+package MainClass;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import cqupt.zyk.db.DBManager;
+import cqupt.zyk.db.Query;
+import cqupt.zyk.db.QueryCallBack;
+
+public class MainClass {
+	public static void main(String[] args) {
+
+		int batchNum = 100000, num = 0;
+		long startTime = System.currentTimeMillis();
+		ArrayList<Object[]> paramList = new ArrayList<Object[]>();
+		try {
+
+			String SQL = "select license_no,pass_port,pass_time from `501` order by license_no,pass_time desc";
+			QueryCallBack back;
+			Object result = Query.executeQueryTemplate(SQL, null, back);
+			ResultSet rs = (ResultSet) result;
+			String lastLicense_No = "";
+			String lastPass_Port = "";
+			while (rs.next() && !rs.getString("license_no").equals("未知")) {
+				if (rs.getString("license_no").equals(lastLicense_No)) {
+					if (!rs.getString("pass_port").equals(lastPass_Port)) {
+						Object[] params = new Object[3];
+						params[0] = rs.getString("license_no");
+						params[1] = rs.getString("pass_port");
+						params[2] = rs.getTimestamp("pass_time");
+						paramList.add(params);
+						lastLicense_No = rs.getString("license_no");
+						lastPass_Port = rs.getString("pass_port");
+					}
+				} else {
+					Object[] params = new Object[3];
+					params[0] = rs.getString("license_no");
+					params[1] = rs.getString("pass_port");
+					params[2] = rs.getTimestamp("pass_time");
+					paramList.add(params);
+					lastPass_Port = rs.getString("pass_port");
+					lastLicense_No = rs.getString("license_no");
+				}
+			}
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.closeConnection(stm, con);
+		}
+	}
+
+}

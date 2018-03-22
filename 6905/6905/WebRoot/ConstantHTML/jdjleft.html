@@ -1,0 +1,116 @@
+﻿<div id="left">
+	<ul class="module1">
+<!-- 第一个 -->
+        <li class="module1--li1" style="border-bottom:1px solid #E0E0E0;">
+            <a href="InWarehouseServlet?operate=listApply">业务办理</a>
+            <ul class="module2" id="module1_2">
+             <li>
+                <a id="module1_2_title2" href="InWarehouseServlet?operate=listApply">列表查询</a>
+                <ul class="module3" id="m"> 
+                    <li><a href="InWarehouseServlet?operate=listApply">查询产品</a></li>
+                    <li><a href="InWarehouseServlet?operate=backUpUpdata">上报备份数据</a></li>
+                    <li><a href="InWarehouseServlet?operate=backUpDowndata">下发信息数据</a></li>
+                </ul> 
+              </li>
+              <li>
+                <a id="module1_2_title2" href="InWarehouseServlet?operate=importApply">申请管理</a>
+              </li>
+              <li>
+                <a id="module1_2_title3"href="OutWarehouseServlet?operate=outWarehouse">出库管理</a>
+                <ul class="module3" id="m"> 
+                    <li><a href="OutWarehouseServlet?operate=outWarehouse">导入发料通知</a></li>
+                 </ul> 
+              </li>
+              <li>
+                <a id="module1_2_title3" href="OutListServlet?operate=selectOutListAllot">出库列表查询</a>
+                <ul class="module3" id="m"> 
+                    <li><a href="OutListServlet?operate=selectOutListAllot">调拨出库列表查询</a></li>
+                    <li><a href="OutListServlet?operate=selectOutListTurn">轮换出库列表查询</a></li>
+                    <li><a href="OutListServlet?operate=selectOutListUpdate">更新出库列表查询</a></li>
+                </ul>
+              </li>
+            </ul>
+        </li>
+
+<!-- 第二个 -->
+        <li class="module1--li2">
+          <a href="ProductQueryServlet?operate=productCollectiveQuery">业务查询</a>
+          <ul class="module2" id="module2_2">
+              <li>
+                <a id="module2_2_title1" href="ProductQueryServlet?operate=productCollectiveQuery">设备信息</a>
+                 <ul class="module3" id="m"> 
+                    <li><a href="ProductQueryServlet?operate=productCollectiveQuery">设备汇总查询</a></li>
+                    <li><a href="ProductQueryServlet?operate=productDetailQuery">设备明细查询</a></li>
+                 </ul>  
+              </li>
+              <li>
+              	<a id="module2_2_title2" href="StatisticsQueryServlet?operate=contractStatistic">统计查询</a>
+              	<ul class="module3" id="m"> 
+                    <li><a href="StatisticsQueryServlet?operate=contractStatistic">按合同统计</a></li>
+                    <li><a href="StatisticsQueryServlet?operate=productStatistic">按设备统计</a></li>
+                </ul>
+              </li>
+          </ul>
+        </li>
+<!-- 新增的一个 -->
+        <li class="module1--li10">
+          <a href="UpdateQueryServlet?operate=updateQuery&curPageNum=1&pageSize=10">轮换更新</a>
+          <ul class="module2" id="module10_2">
+              <li><a id="module10_2_title3" href="UpdateQueryServlet?operate=updateQuery&curPageNum=1&pageSize=10">轮换更新查询</a></li>
+          </ul>
+        </li>
+<!-- 第三个 -->
+        <li class="module1--li3">
+          <a href="Maintain?operateType=maintainInfoQuery&curPageNum=1&pageSize=10">存储维护</a>
+          <ul class="module2" id="module3_2">
+              <li>
+                <a id="module3_2_title1" href="Maintain?operateType=maintainInfoQuery&curPageNum=1&pageSize=10">维护记录查询</a>  
+              </li>
+          </ul>
+        </li>
+<!-- 第四个军代局版没了 -->
+
+<!-- 第五个 -->
+        <li class="module1--li5">
+          <a href="EquipmentServlet?operate=equipmentCollective&curPageNum=1&pageSize=10">实力统计 </a>
+          <ul class="module2" id="module5_2">
+            <li><a id="module5_2_title1" href="EquipmentServlet?operate=equipmentCollective&curPageNum=1&pageSize=10">器材实力统计</a></li>
+            <li><a id="module5_2_title2"href="EquipmentServlet?operate=equipmentDetail">器材明细统计</a></li>
+            <li><a id="module5_2_title3"href="EquipmentServlet?operate=equipmentDetailAccount">器材明细账</a></li>
+          </ul>
+        </li>
+<!-- 第六个 -->
+        <li class="module1--li6">
+          <a href="FareServlet?curPageNum=1&pageSize=10">经费管理</a>
+        </li>
+<!-- 第七个 -->
+        <li class="module1--li7">
+          <a href="InfoServlet?nextLevel=jdj&operate=searchContentAndInfo">资质管理</a>
+        </li>
+<!-- 第八个 -->
+        <li class="module1--li8">
+          <a href="SystemManagementServlet?operate=9831">系统管理</a>
+          <ul class="module2" id="module8_2">
+            <li><a id="module8_2_title1"href="SystemManagementServlet?operate=9831">9831库</a></li>
+            <li><a id="module8_2_title2"href="SystemManagementServlet?operate=basedata">基础数据库</a></li>
+            <li><a id="module8_2_title3"href="SystemManagementServlet?operate=dataBackup">数据备份</a></li>
+            <li><a id="module8_2_title5"href="SystemManagementServlet?operate=logConfiguration&curPageNum=1&pageSize=10">日志管理</a></li>
+            <li><a id="module8_2_title6"href="SystemManagementServlet?operate=parameterConfiguration">参数配置</a></li>
+          </ul>
+        </li>
+<!-- 第九个 -->
+        <li class="module1--li9">
+          <a href="UserServlet?operation=peruserinfo">用户管理 </a>
+          <ul class="module2" id="module9_2">
+            <li><a id="module9_2_title1"href="UserServlet?operation=peruserinfo">个人用户</a></li>
+            <li>
+              <a id="module9_2_title2" href="UserServlet?operation=manager&subOperation=searchAllUser&curPageNum=1&pageSize=10">管理员用户</a>
+              <ul class="module3" id="m"> 
+                    <li><a href="UserServlet?operation=manager&subOperation=searchAllUser&curPageNum=1&pageSize=10">用户管理</a></li>
+                    <li><a href="UserServlet?operation=manager&subOperation=roleInfo">角色管理</a></li>
+                 </ul>
+            </li>
+          </ul>
+        </li>
+  </ul>
+</div>

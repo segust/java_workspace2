@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>mashibing.com</groupId>
+	<artifactId>MR_Maven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>word count</name>
+	<description>count the words</description>
+
+	<properties>
+		<project.build.sourceencoding>UTF-8</project.build.sourceencoding>
+		<hadoop.version>2.7.3</hadoop.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>${hadoop.version}</version>
+		</dependency>
+	</dependencies>
+
+	 <build>  
+  <pluginManagement>  
+    <plugins>  
+     <!-- add by M-->  
+        <plugin>    
+           <groupId>org.eclipse.m2e</groupId>    
+           <artifactId>lifecycle-mapping</artifactId>    
+           <version>1.0.0</version>    
+           <configuration>   
+        <lifecycleMappingMetadata>  
+                    <pluginExecutions>                
+             <pluginExecution>  
+                          <pluginExecutionFilter>  
+                            <groupId>org.apache.maven.plugins</groupId>  
+                         <artifactId>maven-antrun-plugin</artifactId>  
+                           <goals>  
+                          <goal>run</goal>  
+                      </goals>  
+                             <versionRange>[1.7,)</versionRange>  
+                        </pluginExecutionFilter>  
+                       <action>  
+                        <ignore />  
+                        </action>  
+                     </pluginExecution>  
+                 </pluginExecutions>  
+                </lifecycleMappingMetadata>  
+       </configuration>    
+       </plugin>    
+       <!-- end ending --> 
+
+</project>

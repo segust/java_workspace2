@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="1" failures="0" finished="true" name="Test Run: 2" tests="0" total_time="Finished in: 0.00 secs."/>
+<test location="/home/segust/&amp;#25991;&amp;#26723;/Workspace/fpGrowth/fp/fpGrowth.py" status="error" test="fp.fpGrowth" time="0">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "/home/segust/.p2/pool/plugins/org.python.pydev_5.8.0.201706061859/pysrc/_pydev_runfiles/pydev_runfiles.py", line 468, in __get_module_from_str
+    mod = __import__(modname)
+ImportError: No module named fp.fpGrowth
+ERROR: Module: fp.fpGrowth could not be imported (file: /home/segust/&#25991;&#26723;/Workspace/fpGrowth/fp/fpGrowth.py).
+]]></stderr>
+</test>
+<launch mode="run">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="fpGrowth fpGrowth.py（1）"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>

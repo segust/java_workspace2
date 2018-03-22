@@ -1,0 +1,36 @@
+package model;
+
+import java.util.*;
+
+import util.loadData;
+
+public class Node {
+
+	String attribute;
+	double entropy = 0.0;
+	Set<Node> kids = new HashSet<Node>();
+	int positiveNum = 0;
+	int negativeNum = 0;
+
+	public Node(Set<Example> examples, String attribute) {
+
+		this.attribute = attribute;
+
+		for (Example E : examples) {
+			if (E.play.equals("yes"))
+				positiveNum++;
+			else
+				negativeNum++;
+		}
+
+	}
+
+	public double getEntropy() {
+		for (Node kid : kids) {
+			if (kid.attribute.equals(loadData.Category)) {
+
+			}
+		}
+		return entropy;
+	}
+}

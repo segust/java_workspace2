@@ -1,0 +1,69 @@
+package model;
+
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+
+import cqupt.db.DBManager;
+
+/**
+ * @author
+ * @date 2017年7月16日 下午3:26:22
+ * @parameter
+ */
+public class Location {
+	String license_no;
+
+	Connection conn = null;
+	ResultSet rs = null;
+	Statement st = null;
+
+	public Location(String license_no) {
+		this.license_no = license_no;
+	}
+
+	private void getLocation() {
+		try {
+			Map<String, Integer> locationMap = new HashMap<String, Integer>();
+			String localsql = "select * from 'test'";
+			conn = DBManager.getConnection();
+			st = conn.createStatement();
+			rs = st.executeQuery(localsql);
+			System.out.println("经常停留的地点：");
+			rs.next();
+
+			String templetlocation = rs.getString("pass_port_name");
+			BigDecimal templetrate = BigDecimal.ZERO;
+			BigDecimal templetlat = new BigDecimal(rs.getString("lat"));
+			BigDecimal templetlng = new BigDecimal(rs.getString("lng"));
+
+			String lastlocation = rs.getString("pass_port_name");
+			BigDecimal lastrate = BigDecimal.ZERO;
+			Timestamp lasttime = rs.getTimestamp("pass_time");
+			BigDecimal lastlat = new BigDecimal(rs.getString("lat"));
+
+			BigDecimal lastlng = new BigDecimal(rs.getString("lng"));
+			while (rs.next()) {
+				String currentlocation = rs.getString("pass_port_name");
+				Timestamp currenttime = rs.getTimestamp("pass_time");
+				BigDecimal currentlat = new BigDecimal(rs.getString("lat"));
+				BigDecimal currentlng = new BigDecimal(rs.getString("lng"));
+				BigDecimal currentrate = (currentlat.subtract(lastlat).pow(2)).add(currentlng.subtract(lastlng).pow(2))
+						.divide(new BigDecimal(currenttime.getTime() - lasttime.getTime()));
+
+				if (currentrate.compareTo(templetrate) == 1) {
+					templetlocation = lastlocation;
+					templetrate = lastrate;
+					templetlat = lastlat;
+					templetlng = lastlng;
+				}
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,78 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
+import cqupt.bean.Pass_Port_Info;
+import cqupt.db.DBManager;
+
+/**
+ * @author
+ * @date 2017年7月14日 上午9:25:39
+ * @parameter
+ */
+public class RegularPoints {
+
+	String license_no;
+
+	Connection conn = null;
+	ResultSet rs = null;
+	Statement st = null;
+
+	public RegularPoints(String license_no) {
+		this.license_no = license_no;
+	}
+
+	public List<Pass_Port_Info> getWorkDayRegularPoints() {
+
+		try {
+			String workdaysql = "select license_no,pass_time,pass_port_name,COUNT(*)as count from (SELECT * from `test` WHERE EXTRACT(DAY FROM pass_time)%7<>0 OR EXTRACT(DAY FROM pass_time)%7<>6 AND EXTRACT(DAY FROM pass_time)<>1) f GROUP BY license_no,pass_port ORDER BY count DESC";
+			conn = DBManager.getConnection();
+			st = conn.createStatement();
+			rs = st.executeQuery(workdaysql);
+			System.out.println("工作日常去地点：");
+			int looptime1 = 0;
+			while (rs.next()) {
+				looptime1++;
+				if (looptime1 <= 10) {
+					System.out.print(rs.getString("pass_port_name") + ":" + rs.getInt("count") + "\t");
+				}
+			}
+			System.out.println();
+
+			String weekendsql = "select license_no,pass_time,pass_port_name,COUNT(*)as count from (SELECT * from `test` WHERE EXTRACT(DAY FROM pass_time)%7=0 OR EXTRACT(DAY FROM pass_time)%7=6 AND EXTRACT(DAY FROM pass_time)<>1) f GROUP BY license_no,pass_port ORDER BY count DESC";
+			rs = st.executeQuery(weekendsql);
+			System.out.println("周末常去地点：");
+			int looptime2 = 0;
+			while (rs.next()) {
+				looptime2++;
+				if (looptime2 < 5) {
+					System.out.print(rs.getString("pass_port_name") + ":" + rs.getInt("count") + "\t");
+				}
+			}
+			System.out.println();
+
+			String holidaysql = "select license_no,pass_time,pass_port_name,COUNT(*)as count from (SELECT * from `test` where EXTRACT(DAY FROM pass_time)=1) f GROUP BY license_no,pass_port ORDER BY count DESC";
+			rs = st.executeQuery(holidaysql);
+			System.out.println("假期常去地点：");
+			int looptime3 = 0;
+			while (rs.next()) {
+				looptime3++;
+				if (looptime3 < 3) {
+					System.out.println(rs.getString("pass_port_name") + ":" + rs.getInt("count") + "\t");
+				}
+			}
+			System.out.println();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.closeConnection(conn, st, rs);
+		}
+		return null;
+
+	}
+
+}

@@ -1,0 +1,778 @@
+#content{
+    width: 100%;
+    height:auto;
+    display: block;
+    float: left;
+}
+
+.userinfo-main{
+    width:100%;
+    height:auto;
+    display:block;
+    color:#FFFFFF;
+}
+
+.userinfo-top{
+    width:100%;
+    height:50px;
+    display:block;
+    font-size:30px;
+    background-color:#009999;
+    line-height:50px;
+    margin-top: 20px;
+}
+
+.userinfo-top title{
+    float:left;
+    height:50px;
+    display:block;
+    font-size:30px;
+    line-height:50px;
+    margin-left:40px;
+}
+
+.userinfo-op{
+    height:50px;
+    display:block;
+    text-align:right;
+    margin-right:20px;
+}
+
+.add-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:80px;
+    height:25px;
+    font-weight:bold;
+    margin-left:5px;
+}
+
+.return-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:80px;
+    height:25px;
+    font-weight:bold;
+    margin-left:5px;
+}
+
+.manage-users-info{
+    width:85%;
+    height:auto;
+    display:block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adduser-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    margin-right:10px;
+    cursor:pointer;
+}
+
+.resetuser-btn{
+    border:0px;
+    background-color:#66CCCC;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    margin-right:80px;
+    cursor:pointer;
+}
+
+.peruser-info{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border: 1px #009999 solid;
+}
+
+.contract-add-table{
+	border: 1px solid gray;
+	padding: 2px;
+	width:300px;
+	margin:auto;
+}
+
+.contract-add-table-head td{
+    background-color:white;
+    width:120px;
+}
+
+.contract-add-table td{
+    padding:12px;
+    text-align:center;
+    vertical-align:middle;
+    width: 75px;
+}
+.Apply-table td{
+    border:1px solid black;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+}
+.contract-add-table-body td{
+    width:120px;
+}
+
+.search-box{
+    margin-top: 2px;
+    margin-left: 10px;
+    height: 50px;
+    padding: 10px 0;
+    color: black;
+}
+.search-btn{
+	border:0;
+	background-color:#3CB371;
+	color:white;
+	width:70px;
+	height:25px;
+	font-weight:bold;
+	margin-left:5px;
+}
+
+.search-box span{
+	font-size: 16px;
+}
+.search-btn:hover{
+	cursor:pointer;
+	color:white;
+	background-color:#009933;
+}
+.setTem{
+	width:70px;
+}
+
+.contract-data{
+   	width:100%;
+   	height:auto;
+    display:block;
+    color:#FFFFFF;
+}
+
+#contract-table {
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+}
+
+/*#contract-table tr{background-color:white;}*/
+#list-table {
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+    border:1px solid black;
+}
+
+.contract-table th{
+	border:1px solid green;
+    background-color:#009966; 
+    padding:5px;
+    width:100px;
+}
+
+#contract-table td{
+    border:1px solid green;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+    white-space : nowrap; 
+}
+
+.contract-table a{
+    font-size: 13px;
+}
+
+.contract-table a:hover{
+	color:red;
+}
+
+#contract-table-box{
+    margin: 20px auto;
+    /* width: 1000px; */
+}
+
+
+.sang_Calender{
+    background:url("/6905/img/calendar.png") no-repeat scroll right center transparent;
+    cursor: pointer;
+    background-color:#FFFFFF;
+  }
+  /*文字css*/
+  .words-box{
+  	line-height: 24px;
+  	height: 100%;
+  	overflow: hidden;
+  	color: #666;
+  	float: left;
+  }
+  
+ .list-box{
+ 	height: 24px;
+ 	text-indent: 10px;
+ 	border-top: 1px solid #DCDCDC;
+ }
+ 
+ .contract-add-table tr:hover{
+ 	background:white;
+ }
+ 
+ .singlerow_form{
+ 	width:50%;
+ 	margin:20px auto 0px auto;
+ }
+ 
+ .singlerow_form [type="submit"],.singlerow_form [type="reset"]{
+ 	border:0px;
+ 	color:white;
+ 	height:25px;
+ 	width:80px;
+ 	font-weight:bold; 
+ 	background: #3CB371;
+ 	cursor: pointer;
+ }
+ 
+ .singlerow_form [type="submit"]:hover,.singlerow_form [type="reset"]:hover{
+ 	background: #009933;
+ }
+ 
+ .outtable-import-table [type="submit"],.outtable-import-table [type="reset"]{
+ 	border:0px;
+ 	color:white;
+ 	height:25px;
+ 	width:80px;
+ 	font-weight:bold; 
+ 	background: #3CB371;
+ 	cursor: pointer;
+ 	margin: 0px 5px 0px 5px;
+ }
+ 
+ .outtable-import-table [type="submit"]:hover,.outtable-import-table [type="reset"]:hover{
+	background: #009933;
+ }
+ 
+ .addproduct_box{
+	margin-top: 5px;
+}
+
+.addproduct_table{
+	float: left;
+	padding: 20px;
+	border-width: 1px 1px 1px medium;
+	border-style:solid;
+	border-color:#E1E1E1;
+	margin: 4% 0 4% 4%;
+}
+
+.addproduct_list{
+	display:block;
+	float: left;
+	padding: 25px;
+	border-width: 1px 1px 1px medium;
+	border-style:solid none;
+	border-color:#E1E1E1;
+	margin:4% 0 0 4%; 
+}
+
+
+/*更新入库申请管理*/
+h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+.public-info-wrap{
+    width:90%;
+    min-width:1000px;
+    margin:0 auto;
+}
+.public-info-wrap ul li{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.public-info-wrap h1{
+    padding-top: 20px;
+    padding-bottom:20px;
+}
+.public-info-wrap ul{
+    border: 1px solid;
+    text-align: center;
+    width: 30%;
+    margin:0 auto;
+}
+
+
+.specific-info-wrap{
+    width:90%;
+    min-width:1000px;
+    margin:0 auto;
+}
+.specific-info-wrap ul{
+    width:60px;
+}
+.specific-info-wrap ul li{
+    text-align:center;
+    border:1px solid #009966;
+    height:20px;
+    line-height:20px;
+    margin-bottom:10px;
+    position:relative;
+}
+.specific-info-wrap ul li a{
+    color:#009966;
+    font-size:14px;
+    padding-left:6px;
+    padding-right:6px;
+}
+
+.specific-info-wrap ul li:hover{
+    background-color:#009966;
+}
+.specific-info-wrap ul li:hover a{
+    color:white;
+    display: block;
+}
+.specific-info-wrap table{
+    border:1px solid;
+    margin-bottom:50px;
+}
+.specific-info-wrap table td{
+    border-collapse:collapse;
+    text-align:right;
+    padding:5px 10px;
+}
+
+.table-wrap{
+    width:800px;
+    margin-top:20px;
+    margin-bottom:50px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.specific-info-wrap ul li table{
+    position:absolute;
+    left:100px;
+    top:0;
+}
+
+.no-active{display:none;}
+.li-bgcolor{background-color: #009966}
+.specific-info-wrap ul li a.font-color{color:white;}
+
+
+
+#submit-form input{
+    width:80px;
+    height:25px;
+    line-height:25px;
+    border:0;
+    background-color:#3CB371;
+    color:white;
+    font-size:16px;
+    font-family:"Microsoft Yahei";
+    font-weight:bold;
+    margin-top:50px;
+}
+
+#submit-form input:hover{
+	cursor:pointer;
+    background-color:#009933;
+}
+.contract-add-table input {
+	border:none;
+	width: 100px;
+	height:20px;
+	text-align:center;
+	border-bottom-color: black;
+	border-bottom: 1px solid;
+}
+.contract-add-table input:focus {
+ border: 1px solid #009933;
+}
+.contract-add-table #error {
+	color: red;
+	font-size: 12px;
+	text-align: center;
+	display: none;
+}
+.contract-add-table #ok {
+	color: blue;
+	font-size: 12px;
+	text-align: center;
+	display: none;
+}
+.select-keeper-box {
+    margin:1em;
+
+}
+.select-keeper-box [type="submit"]{
+
+    color: #fff;
+    background-color: #009966;
+    border-color: #4cae4c;
+    display: inline-block;
+    padding: 3px 12px;
+    margin-bottom: 0;
+    margin-left:1em;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.select-keeper-box [type="submit"]:hover{
+    background-color: #009933;
+}
+
+    
+#ownedUnit{
+    height:30px;
+    width:200px;
+    font-family:Microsoft Yahei;
+}
+.outlist-box {
+	padding: 20px;
+	border-width: 1px 1px 1px medium;
+	border-style:solid;
+	border-color:#E1E1E1;
+	margin: 1% 0 0 1%;
+}
+.outlist-box  span{
+	margin: auto;
+	font-size: 24px;
+}
+.add-outlist-table {
+	border: 1px solid gray;
+	margin: auto;
+	border-bottom-style: none;
+	width: 1030px;
+}
+.add-outlist-table tr:hover{
+	background-color: white;	
+}
+.add-outlist-table td{
+	text-align:center;
+	width: 60px;
+}
+.add-outlist-table input{
+	border:none;
+	width: 100px;
+	height:20px;
+	text-align:center;
+	border-bottom-color: black;
+	border-bottom: 1px solid;
+}
+.add-outlist-table th{
+	height: 70px;
+}
+.outlist-content-table {
+	border: 1px solid gray;
+	margin: auto;
+	width: 1030px;
+	border-right: 1px solid;
+	border-top: 1px solid;
+}
+.outlist-content-table  td{
+	text-align: center;
+	border-left: 1px solid;
+	
+}
+.outlist-content-table  th{
+	text-align: center;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+}
+.add-outlist-table  #totalNum{
+	border:none;
+	width: 50px;
+	border-bottom-color: black;
+	border-bottom: 1px solid;
+}
+.add-outlist-table  #curNum{
+	border:none;
+	width: 50px;
+	border-bottom-color: black;
+	border-bottom: 1px solid;
+}
+#operation {
+	margin: 20px 0 0 5%;
+}
+.outlist-content-table input{
+	border:none;
+	width: 85px;
+	height:20px;
+	text-align:center;
+	border-bottom-color: black;
+	border-bottom: 1px solid;
+}
+
+td .submit{
+    background-color: #3CB371;
+    color: white;
+    border: 0;
+    width: 80px;
+    height: 25px;
+    font-weight: bold;
+}
+td .submit:hover{
+    background-color:green;
+}
+td [type="reset1"]:hover{
+	background:#3CB376;
+	cursor:pointer;
+	border:1px solid #3CB371;
+	color:white;
+	
+}
+td [type="reset"]{
+    background-color:#3CB371;
+    color:white;
+    border:0;
+    width:80px;
+    height:25px;
+    font-family: Microsoft Yahei;
+    font-weight: bold;
+}
+td [type="reset1"]{
+    background-color:#3CB371;
+    color:white;
+    border:0;
+    width:80px;
+    height:25px;
+    font-family: Microsoft Yahei;
+    font-weight: bold;
+    text-align:center;
+}
+td [type="reset"]:hover{
+    background-color:#009933;
+}
+
+td [value="选择文件"]{
+      border: 0px;
+      color: white;
+      height: 25px;
+      width: 80px;
+      font-weight: bold;
+      background: #3CB371;
+      
+  }
+   td [value="选择文件"]:hover{
+      background-color:#009933;
+  }
+
+  [value="导入"]{
+      border: 0px;
+      color: white;
+      height: 25px;
+      width: 80px;
+      font-weight: bold;
+      background: #3CB371;
+  }
+
+
+  [value="导入"]:hover{
+      background-color:#009933;
+  }
+
+#submit{float:right;}  
+
+
+.paging-wrape{
+    height:50px;
+    width:81%;
+    overflow: hidden;
+    text-align:center;
+    margin:2em auto;
+    line-height:50px;
+
+}
+.pagination{
+
+    display: inline-block;
+    padding-left: 0;
+    margin: 0 1px;
+    margin-bottom:0; 
+    border-radius: 4px;
+    float:left;
+}
+
+.pagination>li {
+    display: inline;
+
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #009966;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+span.total-page{
+/*    margin-top:20px;*/
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    background-color: #fff;
+    float:left;
+}
+
+#fare-table{
+    border-collapse:collapse;
+    margin: 0 auto;
+}
+
+#fare-table td {
+    border: 1px solid green;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+}
+
+#paging-wrape a:visited{
+    background-color:#eee;
+}
+
+#bottom_content {
+	text-align: center;
+}
+
+#lunhuanchurukuguanli {
+	text-align: center;
+}
+
+#xinzenglunhuanrukutable{
+	/* margin-left: 8%; */
+}
+
+#view-table{
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    z-index: 100;
+    background-color: white;
+    padding: 20px;
+    border-width: 1px 1px 1px medium;
+    border-style: solid;
+    border-color: rgb(225, 225, 225);
+    min-width: 40%;
+    display: none;
+    height: 40%;
+    overflow-y:scroll; 
+}
+
+#cover-table{
+	position:absolute;
+	z-index:99;
+	width:50%;
+	/* background-color: white; */
+	display: none;
+}
+#showupdatehistory{
+	display:none;
+	z-index:20;
+	position:absolute;
+	top:220px;
+	left:300px;
+	background:white;
+	text-align:center;
+}
+#whole {
+	width: 100%;
+	height: 100%;
+	background-color: #E4E4E4;
+	position: absolute;
+	z-index: 10;
+	filter: alpha(opacity = 60); /* IE 透明度20% */
+	-moz-opacity: 0.4; /* Moz + FF 透明度20%*/
+	opacity: 0.4; /* 支持CSS3的浏览器（FF 1.5也支持）透明度20%*/
+	display: none;
+}
+.hide{
+    visibility:hidden;
+}
+#lunhuanshenheguanli,#daorufaliaodantable{
+    padding:2em;
+}
+
+#lunhuanshenheguanli td{
+    padding:.5em;
+}
+
+/*jds轮换入库更新入库查询条件*/
+
+.toptitle-op .in-apply li{
+    float:left;
+    margin-left:2em;
+}
+.toptitle-op .in-apply{
+    margin:1em 0;
+}
+.clearfix:after{clear:both;content:".";display:block;height:0;visibility:hidden;}
+
+.btn{
+    color: #fff;
+    background-color: #009966;
+    border-color: #4cae4c;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.inputborder{
+	border:1px solid black;
+	text-align:center;
+}
+.toptitle-op .in-apply .submit-btn{
+    padding: 2px 12px;
+}
+.toptitle-op .in-apply input{
+    margin-left:.5em;
+    border:1px solid gray;
+    width:150px;
+    text-align:center;
+}
+.toptitle-op .in-apply .submit-btn:hover{background-color:green;}

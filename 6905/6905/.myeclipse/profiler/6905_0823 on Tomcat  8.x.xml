@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="app_preset_prof_preset_name">6905_0823 on Tomcat  8.x Launch Configuration</entry>
+<entry key="app_preset_prof_preset_filter_s"/>
+<entry key="app_preset_prof_preset_filter_p">cn.edu.cqupt.beans.*,
+cn.edu.cqupt.controller.fare_management.*,
+cn.edu.cqupt.controller.qualification_management.*,
+cn.edu.cqupt.controller.query_business.*,
+cn.edu.cqupt.controller.statistics.*,
+cn.edu.cqupt.controller.storage_maintenanc.*,
+cn.edu.cqupt.controller.sys_management.*,
+cn.edu.cqupt.controller.transact_business.*,
+cn.edu.cqupt.controller.user_management.*,
+cn.edu.cqupt.controller.warehouse_management.*,
+cn.edu.cqupt.dao.*,
+cn.edu.cqupt.db.*,
+cn.edu.cqupt.filter.*,
+cn.edu.cqupt.log.*,
+cn.edu.cqupt.service.fare_management.*,
+cn.edu.cqupt.service.qualification_management.*,
+cn.edu.cqupt.service.query_business.*,
+cn.edu.cqupt.service.statistics.*,
+cn.edu.cqupt.service.storage_maintenanc.*,
+cn.edu.cqupt.service.sys_management.*,
+cn.edu.cqupt.service.transact_business.*,
+cn.edu.cqupt.service.user_management.*,
+cn.edu.cqupt.service.warehouse_management.*,
+cn.edu.cqupt.util.*,
+test.*</entry>
+<entry key="app_preset_prof_preset_alloc_p">10</entry>
+<entry key="app_preset_"/>
+<entry key="app_preset_prof_preset_samplingRefreshRate_s">1000</entry>
+<entry key="app_preset_prof_preset_stacks_p">false</entry>
+<entry key="app_preset_prof_preset_roots_p">cn.edu.cqupt.beans.**
+cn.edu.cqupt.controller.fare_management.**
+cn.edu.cqupt.controller.qualification_management.**
+cn.edu.cqupt.controller.query_business.**
+cn.edu.cqupt.controller.statistics.**
+cn.edu.cqupt.controller.storage_maintenanc.**
+cn.edu.cqupt.controller.sys_management.**
+cn.edu.cqupt.controller.transact_business.**
+cn.edu.cqupt.controller.user_management.**
+cn.edu.cqupt.controller.warehouse_management.**
+cn.edu.cqupt.dao.**
+cn.edu.cqupt.db.**
+cn.edu.cqupt.filter.**
+cn.edu.cqupt.log.**
+cn.edu.cqupt.service.fare_management.**
+cn.edu.cqupt.service.qualification_management.**
+cn.edu.cqupt.service.query_business.**
+cn.edu.cqupt.service.statistics.**
+cn.edu.cqupt.service.storage_maintenanc.**
+cn.edu.cqupt.service.sys_management.**
+cn.edu.cqupt.service.transact_business.**
+cn.edu.cqupt.service.user_management.**
+cn.edu.cqupt.service.warehouse_management.**
+cn.edu.cqupt.util.**
+test.**
+</entry>
+<entry key="profiler.settings.instrument.empty.methods">false</entry>
+<entry key="myeclipse.profiling.mode">0</entry>
+<entry key="profiler.settings.istrument.getter.setter.methods">false</entry>
+<entry key="app_preset_prof_preset_samplingRate_s">100</entry>
+<entry key="app_preset_prof_preset_filterMode_s">true</entry>
+<entry key="app_preset_prof_preset_selector"/>
+<entry key="app_preset_prof_preset_refreshRate_s">1000</entry>
+<entry key="app_preset_prof_preset_runnables_p">true</entry>
+<entry key="app_preset_prof_preset_filterMode_p">false</entry>
+<entry key="app_preset_prof_preset_memoryMode_p">true</entry>
+</properties>

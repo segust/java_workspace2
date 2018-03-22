@@ -1,0 +1,14 @@
+package model;
+
+/**
+ * @author
+ * @date 2017年7月16日 下午3:26:22
+ * @parameter
+ */
+public class Location {
+	String license_no;
+
+	public Location(String license_no) {
+		this.license_no = license_no;
+	}
+}

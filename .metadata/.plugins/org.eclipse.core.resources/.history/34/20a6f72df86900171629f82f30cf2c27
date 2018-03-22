@@ -1,0 +1,11 @@
+package model;
+/** 
+* @author
+* @date
+2017年7月16日
+下午3:26:22
+* @parameter
+*/
+public class Location {
+
+}

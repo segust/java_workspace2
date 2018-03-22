@@ -1,0 +1,94 @@
+package fpgrowth;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Tree {
+
+	Map<Node, List<Node>> RootMap = new HashMap<Node, List<Node>>();
+	ArrayList<String> veNode;
+
+	public Tree(ArrayList<String> veNode) {
+		this.veNode = veNode;
+	}
+
+	public void growth() {
+		while (veNode.size() != 0) {
+			boolean f = false;
+			Node r = null;
+			for (Node node : RootMap.keySet()) {
+				if (node.getIDName().equals(veNode.get(0))) {
+					f = true;
+					r = node;
+					veNode.remove(0);
+					break;
+				}
+			}
+			if (f) {
+				r.addCount();
+				r.growth(veNode);
+			}else{
+				Node n=new Node();
+				n.set
+			}
+		}
+	}
+
+	public class Node {
+		boolean isLeaf = false;
+		String idName;
+		int count = 0;
+		ArrayList<Node> children = new ArrayList<Node>();
+
+		public void growth(ArrayList<String> veinfo) {
+			this.idName = veinfo.get(0);
+			veinfo.remove(0);
+			addCount();
+			int i = 0;
+			boolean find = false;
+			for (; i < children.size(); i++) {
+				if (children.get(i).getIDName().equals(veinfo.get(0))) {
+					Node child = new Node(veinfo);
+					children.add(child);
+					find = true;
+				}
+			}
+			if (find) {
+				if (veinfo.size() == 1) {
+					Node child = new Node(veinfo);
+					child.setIsLeaf(true);
+					children.add(child);
+				} else {
+					Node child = new Node(veinfo);
+					children.add(child);
+				}
+			}
+		}
+
+		public void addCount() {
+			count++;
+		}
+
+		public String setIDName(String idName) {
+			this.idName = idName;
+		}
+
+		public String getIDName() {
+			return idName;
+		}
+
+		public int getCount() {
+			return count;
+		}
+
+		public void setIsLeaf(boolean isLeaf) {
+			this.isLeaf = isLeaf;
+		}
+
+		public boolean isLeaf() {
+			return isLeaf;
+		}
+	}
+}

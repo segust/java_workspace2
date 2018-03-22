@@ -1,0 +1,50 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+
+import cqupt.db.DBManager;
+
+/**
+ * @author
+ * @date 2017年7月16日 下午3:26:22
+ * @parameter
+ */
+public class Location {
+	String license_no;
+
+	Connection conn = null;
+	ResultSet rs = null;
+	Statement st = null;
+
+	public Location(String license_no) {
+		this.license_no = license_no;
+	}
+
+	private void getLocation() {
+		try {
+			String localsql = "select * from 'test'";
+			conn = DBManager.getConnection();
+			st = conn.createStatement();
+			rs = st.executeQuery(localsql);
+			System.out.println("经常停留的地点：");
+			rs.next();
+			String templetlocation = rs.getString("pass_port_name");
+			Double templetrate = 0.0;
+			Double templetlat = Double.valueOf(rs.getString("lat"));
+			Double templetlng = Double.valueOf(rs.getString("lng"));
+			while (rs.next()) {
+				String currentlocation = rs.getString("pass_port_name");
+				Timestamp currenttime = rs.getTimestamp("pass_time");
+				Double currentlat = Double.valueOf(rs.getString("lat"));
+				Double currentlng = Double.valueOf(rs.getString("lng"));
+				Double currentrate = Math.pow(currentlat - templetlat, 2);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

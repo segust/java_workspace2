@@ -1,0 +1,333 @@
+@charset "utf-8";
+.userinfo-op{
+    height:50px;
+    line-height:50px;
+    display:block;
+   	float: right;
+   	margin-right: 120px;
+}
+
+.roleinfo-op{
+    height:50px;
+    line-height:50px;
+    display:block;
+   	float: right;
+   	margin-right: 130px;
+}
+
+.userinfo-op select{
+	vertical-align: middle;
+}
+
+.userinfo-op input{
+	vertical-align: middle;
+}
+
+.search-btn{
+    border:0px;
+    background-color:#3CB371;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.add-btn{
+    border:0px;
+    background-color:#3CB371;
+    color:white;
+    width:80px;
+    height:25px;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.return-btn{
+    border:0px;
+    background-color:#3CB371;
+    color:white;
+    width:80px;
+    height:25px;
+    line-height:25px;
+    display:block;
+    float:left;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    cursor: pointer;
+    margin: 0px 5px 0px 5px;
+}
+
+.disabled-btn{
+	border:0px;
+    background-color:#ECECEC;
+    color:white;
+    width:80px;
+    height:25px;
+    font-weight:bold;
+    float:left;
+    cursor: pointer;
+    margin: 0px 5px 0px 5px;
+}
+
+.search-btn:hover,.add-btn:hover,.return-btn:hover{
+	background-color: #009933;
+}
+
+.manage-users-info{
+	width: 1015px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    color: black;
+    overflow: auto;
+}
+
+.user-table-head td{
+	color:white;
+    width:120px;
+    font-weight: bold;
+    background-color:#009966;
+}
+.user-table td{
+    border:1px solid green;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+    white-space: nowrap;
+}
+.user-table-body td{
+    width:120px;
+}
+.user-table{
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+    border: 1px solid black;
+}
+
+.adduser-table{
+    color: black;
+    width:80%;
+    margin:0 auto;
+    margin-top: 20px;
+}
+
+.adduser-table tr:hover{
+	background-color: white;
+}
+
+.adduser-table tbody td{
+    width:100px;
+    padding-bottom:20px;
+}
+
+.adduser-btn{
+    border:0px;
+    background-color:#3CB376;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    margin-right:10px;
+    cursor:pointer;
+}
+
+.resetuser-btn{
+    border:0px;
+    background-color:#3CB376;
+    color:white;
+    width:50px;
+    height:25px;
+    font-weight:bold;
+    margin-right:80px;
+    cursor:pointer;
+}
+
+.peruser-info{
+    width: 750px;
+    height: 350px;
+    margin: 0 auto;
+    display: block;
+}
+
+.adduser-info{
+	width: 750px;
+    height: 350px;
+    margin: 0 auto;
+    display: block;
+}
+
+.adduser-info input[type="text"]{
+	width: 200px;
+    height: 24px;
+    border: none;
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+}
+
+.adduser-info input[type="password"]{
+	width: 200px;
+    height: 24px;
+    border: none;
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+}
+
+.adduser-info select{
+	width: 200px;
+    height: 24px;
+    border: none;
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+}
+
+.peruser-info-title{
+	width: 750px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.adduser-info-title{
+	width: 750px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.peruser-info-eachrow{
+	width: 750px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 20px;
+	float: left;
+}
+
+.peruser-info-eachrow input[type="button"]{
+	margin-left: 640px;
+}
+
+.adduser-info-eachrow{
+	width: 750px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 20px;
+	float: left;
+}
+
+.adduser-info-eachrow input[type="submit"]{
+	margin-left: 430px;
+}
+
+.peruser-info-columntitle{
+	width:100px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+
+.peruser-info-columncontent{
+	width:200px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	border-bottom: 1px solid black;
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+.adduser-info-columntitle{
+	width:100px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+
+.adduser-info-columncontent{
+	width:200px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	border-bottom: 1px solid black;
+	margin-left: 20px;
+}
+
+.addrole-form{
+	width: 450px;
+    height: auto;
+    color: black;
+    padding: 10px;
+    margin: 50px auto;
+}
+
+.addrole-form p{
+	margin: 30px 0px;
+}
+
+.addrole-form p span{
+	margin: 0px 50px 0px 0px;
+}
+
+.addrole-form p input[type="checkbox"]{
+	margin: 0px 0px 0px 10px; 
+}
+
+.addrole-form p input[type="text"]{
+	margin-left: 90px;
+    width: 226px;
+    border: none;
+    border-bottom: 1px solid;
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+    text-align: center;
+}
+
+.addrole-form p input[type="submit"]{
+	margin-left: 100px;
+}
+
+.updatepwd-form{
+	width: 500px;
+	height: auto;
+	margin: 50px auto;
+	color: black;
+}
+
+.updatepwd-form p{
+	margin: 20px 0px;
+	display: block;
+	float: left;
+}
+
+.updatepwd-form .left-span{
+	width: 100px;
+    height: auto;
+    text-align: right;
+    display: block;
+    float: left;
+}
+
+.updatepwd-form .right-span{
+	width: 120px;
+    height: auto;
+    text-align: right;
+    display: block;
+    border:none;
+    color:red;
+    float: left;
+}
+
+.updatepwd-form input[type="password"]{
+	width:150px;
+	font-size: 16px;
+	display: block;
+	float: left;
+}

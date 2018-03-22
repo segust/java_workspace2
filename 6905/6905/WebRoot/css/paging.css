@@ -1,0 +1,30 @@
+div.total,div.go-page{
+    float:left;
+    height:36px;
+    line-height: 36px;
+    margin-left:20px;
+}
+
+.page_Input{
+	width:50px;
+	padding:5px 5px;
+	text-align:center;
+}
+
+.go-page a.sure-btn{
+    padding: 5px 12px;
+    color: white;
+    background-color: #009966;
+}
+
+.go-page a.sure-btn:hover{
+    background-color:#009933;
+}
+
+.pagination li a:hover{
+    background-color:#eee;
+}
+
+.pagination li a.active{
+    background-color:#eee;
+}

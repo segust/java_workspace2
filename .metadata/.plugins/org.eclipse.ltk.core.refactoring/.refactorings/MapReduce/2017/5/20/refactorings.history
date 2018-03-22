@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将包“test”复制到“MR_Maven/src/main/java”&#x0D;&#x0A;－ 原始项目：“MapReduce”&#x0D;&#x0A;－ 目标元素：“MR_Maven/src/main/java”&#x0D;&#x0A;－ 原始元素：“MapReduce/src/test”" description="复制包" destination="=MR_Maven/src\/main\/java" element1="/src&lt;test" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1494818360378" version="1.0"/>
+</session>

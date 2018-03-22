@@ -1,0 +1,21 @@
+package start;
+
+import java.util.*;
+
+import model.Apriori;
+import util.readData;
+
+public class Start {
+	public static void main(String[] args) {
+		readData reader = new readData();
+		// System.out.println("获取毒蘑菇数据（1）或者可食用蘑菇数据（2）");
+		// Scanner scan = new Scanner(System.in);
+		// String clas = scan.nextLine();
+		// System.out.println("输入支持度");
+		// String support = scan.nextLine();
+		// scan.close();
+		Set<Set<Integer>> InitialData = reader.getInitialData("2");
+		Apriori apriori = new Apriori(InitialData, "1700");
+		apriori.apriori();
+	}
+}

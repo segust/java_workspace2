@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+.rightTop{
+	width: 100%;
+    color: black;
+}
+
+.deviceinfo-op{
+    height: 100px;
+    line-height: 50px;
+    display: block;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.deviceinfo-op select{
+	vertical-align: middle;
+}
+
+.deviceinfo-op input{
+	vertical-align: middle;
+}
+
+.deviceinfo-op label{
+	margin: 0px 5px 0px 5px;
+}
+
+.p1{
+	text-align: center;
+}
+
+.p2{
+	padding-left: 718px;
+}
+
+.device-btn{
+    border:0px;
+    background-color:#3CB371;
+    color:white;
+    width:100px;
+    height:25px;
+    font-weight:bold;
+    cursor: pointer;
+    margin: 0px 5px 0px 5px;
+}
+
+.device-btn:hover{
+	background-color: #009933;
+}
+
+.device-info{
+    width:95%;
+    height:auto;
+    display:block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.device-table-head td{
+    background-color:#009966;
+    color:white;
+    font-weight: bold;
+}
+.device-table td{
+	width: 100px;
+    border:1px solid black;
+    padding:5px;
+    text-align:center;
+    vertical-align:middle;
+    white-space: nowrap;
+}
+
+.device-table{
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+    border: 1px solid black;
+}
+
+.device-op-box{
+	width: 400px;
+    height: auto;
+    margin: 100px auto 0px auto;
+    color: black;
+	display: none;
+}
+
+.device-op-box input[type="text"]{
+	font-size: 16px;
+}
+
+.device-op-box select{
+	font-size: 14px;
+}
+
+.device-op-box p{
+	margin: 30px;
+}
+
+.device-op-box input[type="text"]{
+	width: 240px;
+}
+
+.select-box{
+	width:150px;
+}

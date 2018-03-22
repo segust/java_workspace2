@@ -1,0 +1,52 @@
+package model;
+
+import java.util.*;
+
+import util.Entropy;
+
+public class Node {
+
+	String attribute;
+
+	double Gain = 0.0;
+	int num = 0;
+	int positiveNum = 0;
+	int negativeNum = 0;
+	boolean isEnd = false;
+
+	Set<Node> kids = new HashSet<Node>();
+
+	public Node(Set<Example> examples) {
+
+		num = examples.size();
+		Set<String> attributes = examples.iterator().next().map.keySet();
+
+		for (Example E : examples) {
+			if (E.play.equals("yes"))
+				positiveNum++;
+			else
+				negativeNum++;
+		}
+
+		if (positiveNum == 0 || negativeNum == 0) {
+			isEnd = true;
+			return;
+		} else {
+			Entropy splitor = new Entropy(examples);
+			Gain = splitor.CalEntropy();
+			for (String attribute : attributes) {
+				for (Example example : examples) {
+
+				}
+			}
+		}
+	}
+
+	public String getAttribute() {
+		return attribute;
+	}
+
+	public void setAttribute(String attribute) {
+		this.attribute = attribute;
+	}
+}

@@ -1,0 +1,805 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,p,ul,li,a {
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft Yahei;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.right_navi {
+	height: 25px;
+	min-width: 200px;
+	background-color: #009999;
+}
+
+.right_navi ul li {
+	overflow: hidden;
+	float: left;
+	line-height: 25px;
+	width: 100px;
+	height: 25px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.right_navi ul li a {
+	color: #FFF;
+}
+
+.right_navi ul li a:hover {
+	color: red;
+	display: block;
+}
+
+.right_navi ul li a:visited {
+	display: block;
+	background: #FFF;
+}
+
+.setTem { /*width:100px;*/
+	
+}
+
+.tem-table {
+	width: 450px;
+	color: #000;
+	margin-left: 100px;
+	margin-top: 200px;
+}
+
+.tem-table tr:hover{
+	background-color: white;	
+}
+
+.save-btn {
+	border: 0px;
+	background-color: #3CB371;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin-left: 460px;
+	margin-top: 10px;
+}
+
+.save-btn:hover{
+	cursor: pointer;
+	background-color: #009933;
+}
+
+.scan-btn {
+	border: 0px;
+	background-color: #3CB371;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin: 10px 2px 0px 2px;
+}
+
+.scan-btn:hover {
+	background-color: #009933;
+	cursor: pointer;
+}
+
+.search_box {
+	height: 50px;
+	line-height: 50px;
+	min-width: 600px;
+	margin-left: 10px; overflow : hidden;
+	color: black;
+	overflow: hidden;
+}
+
+.search_box input[type="text"] {
+	width: 100px;
+}
+
+.search_box tr:hover {
+	background-color: white;
+}
+
+.search_box_basedata {
+	height: 60px;
+	overflow: hidden;
+	line-height: 50px;
+	margin-left: 10px;
+}
+
+.impAndDel {
+	height: auto;
+	min-width: 600px;
+	margin-left: 10px;
+	overflow: hidden;
+	color: black;
+}
+
+.show_table {
+	margin-top: 5px;
+}
+
+.show_content {
+	min-width: 1200px;
+}
+
+.tem-table_rizhiguanli {
+	width: 450px;
+	color: #000;
+	border: 1px solid #999;
+	margin-left: 280px;
+	margin-top: 50px;
+}
+
+.tem-table_rizhiguanli tr {
+	border: 1px solid #999;
+}
+
+.tem-table_rizhiguanli-body td {
+	width: 100px;
+	text-align: center;
+}
+
+.tem-table_shilihuizong {
+	width: 900px;
+	color: #000;
+	border: 1px solid #999;
+	margin-left: 200px;
+	margin-top: 20px;
+}
+
+.tem-table_shilihuizong tr td {
+	width: 100px;
+	text-align: center;
+}
+
+.tem-table_qicaimingxi {
+	width: 1280px;
+	color: #000;
+	border: 1px solid #999;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+.tem-table_qicaimingxi tr td {
+	width: 100px;
+	text-align: center;
+}
+
+.tem-table_qicaimignxizhang {
+	width: 1100px;
+	color: #000;
+	border: 1px solid #999;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.tem-table_qicaimignxizhang tr td {
+	width: 100px;
+	text-align: center;
+}
+
+.mingxi_btn {
+	cursor: pointer;
+}
+
+#mingxitable {
+	position: absolute;
+	z-index: 20;
+	display: none;
+	background: white;
+	top: 200px;
+	left: 350px;
+	padding: 10px;
+    border: 1px solid;
+    width: 670px;
+    height: 300px;
+    overflow: auto;
+}
+
+.tem-table_mingxizhang {
+	width: 670px;
+	color: #000;
+	border-bottom: 1px solid #000;
+	border-collapse: collapse;
+	border-right: 1px solid #000;
+	padding: 0px;
+}
+
+.tem-table_mingxizhang tr td {
+	width: 100px;
+	text-align: center;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+}
+
+.tem-table_basedata {
+	color: #000;
+	border-right: 1px solid #000;
+	margin-left: 100px;
+	margin-top: 20px;
+	border-bottom: 1px solid #000;
+	border-collapse: collapse;
+	overflow: hidden;
+	padding: 0px;
+	min-width: 1000px;
+}
+
+.tem-table_basedata td {
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+}
+
+.tdtd td {
+	width: 10px;
+}
+
+.insert-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+}
+
+.delete-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+}
+
+.out-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin-left: 600px;
+	margin-top: 5px;
+}
+
+#contract_mingxi {
+	width: 650px;
+	color: #000;
+	border: 1px solid #999;
+	margin-left: 300px;
+	margin-top: 20px;
+	position: absolute;
+	z-index: 20;
+	display: none;
+}
+
+#renew_basedata {
+	min-width: 900px;
+	position: absolute;
+	z-index: 30;
+	display: none;
+	background: white;
+}
+
+.base_save-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin-left: 1200px;
+	margin-top: 5px;
+}
+
+.tem-table_basedatanew {
+	color: #000;
+	border-right: 1px solid #000;
+	margin-left: 100px;
+	margin-top: 20px;
+	border-bottom: 1px solid #000;
+	border-collapse: collapse;
+	overflow: hidden;
+	padding: 0px;
+	min-width: 1000px;
+	background: white
+}
+
+.tem-table_basedata th {
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+}
+
+.contract-add-table-head th {
+	background-color: white;
+	border: 1px solid black;
+	width: 140px;
+}
+
+.contract-add-table td {
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.contract-add-table-body td {
+	/*width: 120px;*/
+}
+
+.contract-add-table {
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+#add_9831 {
+	min-width: 900px;
+	position: absolute;
+	z-index: 30;
+	background: white;
+	top: 100px;
+	left: 10px;
+	display: none;
+}
+
+.in9831-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin-left: 800px;
+}
+
+.in-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+}
+
+.in_need-btn {
+	border: 0px;
+	background-color: #66CCCC;
+	color: white;
+	width: 110px;
+	height: 25px;
+	font-weight: bold;
+}
+
+.modify_basedata {
+	color: #000;
+	margin: 0 auto;
+	border-collapse: collapse;
+	/* overflow: hidden; */
+	padding: 0px;
+	min-width: 400px;
+	border: 1px solid green;
+}
+
+.modify_basedata input[type="submit"]{
+    border: 0px;
+    background-color: #3CB371;
+    color: white;
+    width: 80px;
+    height: 25px;
+    font-weight: bold;
+}
+
+.modify_basedata input[type="submit"]:hover{
+	cursor: pointer;
+	background-color: #009933;
+}
+
+.modify_basedata th {
+	background-color: #009966;
+	border: 1px solid green;
+	color: white;
+}
+
+.modify_basedata td {
+	border: 1px solid green
+}
+
+/* .modify_basedata input:hover {
+	color: white;
+} */
+
+.setbasedata {
+	width: 300px;
+	border: #000 1px solid;
+}
+
+.basedata tr td {
+	width: 100px;
+}
+
+.fare-data {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.fare-table {
+	height: auto;
+}
+
+#fare-table {
+	color: black;
+	border-collapse: collapse;
+	margin: 0 10px;
+	border: 1px solid black;
+}
+
+#fare-table th {
+	padding: 5px;
+	width: 100px;
+	border: 1px solid green;
+}
+
+#fare-table td {
+	border: 1px solid;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	width: 50px;
+	border: 1px solid green;
+}
+
+#fare-table-box {
+	width: 2090px;
+	height: auto;
+	margin-top: 30px;
+}
+
+.sang_Calender {
+	background:url("/6905/img/calendar.png") no-repeat
+		scroll right center transparent;
+	cursor: pointer;
+	background-color: #FFFFFF;
+}
+
+.canshupeizhi {
+	color: #66CCCC;
+}
+
+#data-recover-table {
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+.data-recover-table th {
+	background-color: #669966;
+	padding: 5px;
+	width: 100px;
+	border: 1px solid black;
+}
+
+#data-recover-table td {
+	border: 1px solid;
+	padding: 5px;
+	background-color: #F0F0F0;
+	text-align: center;
+	vertical-align: middle;
+	width: 300px;
+}
+
+.data-recover-table a {
+	font-size: 13px;
+}
+
+.data-recover-table a:hover {
+	color: red;
+}
+
+#whole {
+	width: 100%;
+	height: 100%;
+	background-color: #E4E4E4;
+	position: absolute;
+	z-index: 10;
+	filter: alpha(opacity = 60); /* IE 透明度20% */
+	-moz-opacity: 0.4; /* Moz + FF 透明度20%*/
+	opacity: 0.4; /* 支持CSS3的浏览器（FF 1.5也支持）透明度20%*/
+	display: none;
+}
+
+.sure_detail-btn{
+	border: 0px;
+	background-color: #3CB371;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin-top:10px;
+	float: right;
+}
+
+.sure_detail-btn:hover{
+	cursor: pointer;
+	background-color: #009933;
+}
+
+#equipment_detail-box {
+	width: 95%;
+	min-width: 600px;
+	margin: 50px auto 0px auto;
+}
+
+#equipment_detail {
+	width: 1200px;
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+#equipment_detail tr td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 7px;
+}
+
+#equipment_detail tr th {
+	border: 1px solid black;
+	background-color: #009966;
+}
+
+#equipment_strength {
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+#equipment_strength-box {
+	width: 1000px;
+	min-width: 600px;
+	margin: 50px auto 0px auto;
+}
+
+#equipment_strength tr td {
+	border: 1px solid green;
+	text-align: center;
+	padding: 7px;
+}
+
+#equipment_strength tr th {
+	border: 1px solid green;
+	text-align: center;
+	background-color: #009966;
+}
+
+#equipment_detail_account {
+	width: 95%;
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+#equipment_detail_account-box {
+	width: 95%;
+	min-width: 600px;
+	margin: 50px auto 0px auto;
+}
+
+#equipment_detail_account tr td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 7px;
+}
+
+#equipment_detail_account tr th {
+	border: 1px solid black;
+	text-align: center;
+	background-color: #009966;
+}
+
+#log_configuration {
+	width: 1000px;
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	margin-top: 50px;
+}
+
+#log_configuration tr td {
+	padding:5px;
+	border: 1px solid green;
+	text-align: center;
+}
+
+#log_configuration tr th {
+	padding:5px;
+	border: 1px solid green;
+	text-align: center;
+}
+
+#parameter_configuration {
+	width: 800px;
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #000;
+	border-right: 1px solid #000;
+	margin-top: 50px;
+	background-color: #f0f0f0;
+	text-align: center;
+}
+
+#parameter_configuration_table {
+	width: 600px;
+	height: 300px;
+	margin-left: 100px;
+}
+
+.title {
+	color: black;
+	font-weight: bold;
+	width: 95%;
+	margin: 30px 0px 30px 0px;
+	font-size: 20px;
+	text-align: center;
+	display: block;
+}
+
+.content h1 {
+	font-size: 24px;
+	color: black;
+	margin-left: 50px;
+	padding-top: 20px;
+}
+
+.form-wrap {
+	min-width: 800px;
+}
+
+.form-wrap ul li {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.form-wrap ul a {
+	padding: 5px 10px;
+	display: block;
+	width: 75px;
+	text-align: center;
+	border: 1px solid green;
+	color: black;
+	margin: 0 auto;
+}
+
+.form-wrap ul input {
+	padding: 5px 10px;
+	width: 97px;
+	text-align: center;
+	border: 1px solid green;
+	color: black;
+	background-color: white;
+	font-family: Microsoft Yahei;
+	font-size: 16px;
+	margin: 0 auto;
+}
+
+.form-wrap ul input:hover {
+	background-color: #009966;
+	cursor: pointer;
+}
+
+.form-wrap ul input:hover {
+	color: white;
+}
+
+.form-wrap ul a:hover {
+	background-color: #009966;
+}
+
+.form-wrap ul a:hover {
+	color: white;
+}
+
+.form-wrap ul.file {
+	width: 100%;
+}
+
+.form-wrap ul [name="upfile"]:hover {
+	background-color: white;
+	color: black;
+	cursor: auto;
+}
+
+.reminder {
+	color: black;
+	margin-left: 50px;
+	width: 265px;
+	background: url('../../img/point_right.png') no-repeat;
+	background-position: 230px 0;
+	height: 38px;
+	margin-top: 115px;
+}
+
+[value="选择文件"] {
+	border: 0px;
+	color: white;
+	height: 25px;
+	width: 80px;
+	font-weight: bold;
+	background: #3CB371;
+}
+
+[value="选择文件"]:hover {
+	background-color: green;
+}
+
+[value="导入"] {
+	border: 0px;
+	color: white;
+	height: 25px;
+	width: 80px;
+	font-weight: bold;
+	background: #3CB371;
+}
+
+[value="导入"]:hover {
+	background-color: green;
+}
+
+.fn-btn {
+	padding: 5px 10px;
+	background-color: #3CB371;
+	color: white;
+	font-weight: bold;
+	border: 0;
+	margin-right: 5px;
+	margin-top: 20px;
+}
+
+.fn-btn:hover {
+	cursor: pointer;
+	background-color: #009933;
+}
+
+.get-logmore-a{
+	font-size: 14px;
+    margin-left: 10px;
+    color: blue;
+}
+
+.get-logmore-a:hover{
+	cursor: pointer;
+}
+
+.show-logremark-box{
+	position:absolute;
+	width:500px;
+	height:100px;
+	background-color:white;
+	color:black;
+	font-size:16px;
+	padding-top:5px;
+	border:1px solid #009966;
+	z-index:100;
+	display: none;
+	left:5px;
+	top:31px;
+	white-space :normal;
+	overflow:auto;
+}

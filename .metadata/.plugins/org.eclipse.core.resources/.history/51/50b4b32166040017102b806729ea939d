@@ -1,0 +1,85 @@
+package Start;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import model.SMS;
+import model.Words;
+
+public class Training {
+	int SpamNum;
+	int HamNum;
+	double PofSpam;
+	double PofHam;
+	int SpamWordNum = 0;
+	int HamWordNum = 0;
+
+	ArrayList<SMS> SMSList = new ArrayList<SMS>();
+	HashMap<String, Words> WordsMap = new HashMap<String, Words>();
+
+	public Training(ArrayList<SMS> SMSList, int SpamNum, int HamNum) {
+		this.SMSList = SMSList;
+		this.SpamNum = SpamNum;
+		this.HamNum = HamNum;
+	}
+
+	public HashMap<String, Words> getWordsMap() {
+
+		for (SMS SMS : SMSList) {
+
+			String Content = SMS.getContent().toLowerCase();
+
+			String regEx = "[^a-z]";
+			Pattern p = Pattern.compile(regEx);
+			Matcher m = p.matcher(Content);
+			String words = m.replaceAll(" ");
+			String[] Words = words.trim().split(" ");
+			for (String Word : Words) {
+				if (Word != "") {
+					if (WordsMap.get(Word) == null) {
+						Words word = new Words(Word);
+						word.addNum();
+						WordsMap.put(Word, word);
+					} else {
+						WordsMap.get(Word).addNum();
+					}
+				}
+			}
+			if (SMS.getClassify().equals("spam"))
+				SpamWordNum += Words.length;
+			else
+				HamWordNum += Words.length;
+		}
+		for (Words word : WordsMap.values()) {
+			double HamRate = (double) word.getNum() / (double) HamWordNum;
+			double SpamRate = (double) word.getNum() / (double) SpamWordNum;
+			word.setHamRate(HamRate);
+			word.setSpamRate(SpamRate);
+		}
+
+		Iterator<String> it = WordsMap.keySet().iterator();
+		while (it.hasNext()) {
+			String word = it.next();
+			if (WordsMap.get(word).getNum() == 1 || word == "")
+				WordsMap.remove(word);
+		}
+		Iterator<String> It = WordsMap.keySet().iterator();
+		while (It.hasNext())
+			System.out.println(word + ":" + WordsMap.get(word).getNum() + "  " + WordsMap.get(word).getHamRate() + " "
+					+ WordsMap.get(word).getSpamRate());
+		return WordsMap;
+
+	}
+
+	public double getPofSpam() {
+		PofSpam = SpamNum / (HamNum + SpamNum);
+		return PofSpam;
+	}
+
+	public double getPofHam() {
+		PofHam = HamNum / (HamNum + SpamNum);
+		return PofHam;
+	}
+
+}

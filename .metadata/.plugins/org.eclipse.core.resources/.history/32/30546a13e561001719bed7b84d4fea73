@@ -1,0 +1,22 @@
+package MainClass;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import dao.DBConnection;
+
+public class MainClass {
+	public MainClass() {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stm = con.createStatement();
+			ResultSet rs;
+			String SQL = "select license_no,pass_port,pass_time from `501s` order by license_no,pass_time";
+			rs = stm.executeQuery(SQL);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

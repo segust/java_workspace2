@@ -1,0 +1,34 @@
+package model;
+
+import java.util.*;
+
+public class RelationRules {
+	ArrayList<Set<Integer>> FrequentList = new ArrayList<Set<Integer>>();
+
+	public RelationRules(ArrayList<Set<Integer>> FrequentList) {
+		this.FrequentList = FrequentList;
+	}
+
+	// 获取真子集
+	HashSet<Set<Integer>> getProperSubset(Set<Integer> oriSet) {
+		ArrayList<Integer> oriList = new ArrayList<Integer>();
+		for (Integer inte : oriSet)
+			oriList.add(inte);
+		HashSet<Set<Integer>> ProperSubset = new HashSet<Set<Integer>>();
+		int max = 1 << oriList.size();
+		for (int loop = 1; loop < oriList.size(); loop++) {
+			int index = 1;
+			int temp = loop;
+			HashSet<Integer> currentIntegerSet = new HashSet<Integer>();
+			while (temp > 0) {
+				if ((temp & 1) > 0)
+					currentIntegerSet.add(oriList.get(index));
+				temp >>= 1;
+				index++;
+			}
+			ProperSubset.add(currentIntegerSet);
+		}
+
+		return ProperSubset;
+	}
+}

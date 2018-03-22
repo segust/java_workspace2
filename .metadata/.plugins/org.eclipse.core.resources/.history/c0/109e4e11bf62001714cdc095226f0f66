@@ -1,0 +1,68 @@
+package MainClass;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class MainClass {
+	public static void main(String[] args) {
+
+		int batchNum = 100000, num = 0;
+		long startTime = System.currentTimeMillis();
+		ArrayList<Object[]> paramList = new ArrayList<Object[]>();
+		try {
+			String params[] = null;
+			int j = 501;
+			for (int i = 0; i < 21; i++) {
+				params[i] = String.valueOf(j);
+				j++;
+			}
+			stm = con.createStatement();
+			String SQL = "select license_no,pass_port,pass_time from `501s` order by license_no,pass_time desc";
+			rs = stm.executeQuery(SQL);
+			String lastPass_Port = "";
+			String lastLicense_No = "";
+			while (rs.next() && !rs.getString("license_no").equals("未知")) {
+				if (rs.getString("license_no").equals(lastLicense_No)) {
+					if (!rs.getString("pass_port").equals(lastPass_Port)) {
+						String sql = "insert into `501test` values(?,?,?)";
+						ps = con.prepareStatement(sql);
+						ps.setString(1, rs.getString("license_no"));
+						ps.setString(2, rs.getString("pass_port"));
+						ps.setTimestamp(3, rs.getTimestamp("pass_time"));
+						if (ps.executeUpdate() == 1) {
+							lastLicense_No = rs.getString("license_no");
+							lastPass_Port = rs.getString("pass_port");
+						} else {
+							System.out.println("sql写入错误！");
+							break;
+						}
+					}
+				} else {
+					String sql = "insert into `501test` values(?,?,?)";
+					ps = con.prepareStatement(sql);
+					ps.setString(1, rs.getString("license_no"));
+					ps.setString(2, rs.getString("pass_port"));
+					ps.setTimestamp(3, rs.getTimestamp("pass_time"));
+					if (ps.executeUpdate() == 1) {
+						lastPass_Port = rs.getString("pass_port");
+						lastLicense_No = rs.getString("license_no");
+					} else {
+						System.out.println("sql写入错误！");
+						break;
+					}
+				}
+			}
+			if (ps != null)
+				ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.closeConnection(stm, con);
+		}
+	}
+
+}

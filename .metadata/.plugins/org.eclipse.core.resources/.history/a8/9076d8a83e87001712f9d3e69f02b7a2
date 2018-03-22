@@ -1,0 +1,247 @@
+package model;
+
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import cqupt.util.Rate;
+
+public class RegularPoints {
+
+	ResultSet rs = null;
+	List<String> timeList = new ArrayList<String>();
+
+	public RegularPoints(ResultSet rs) {
+		this.rs = rs;
+	}
+
+	@SuppressWarnings("deprecation")
+	public void getRegularPoints() {
+		try {
+
+			String currentlocation;
+			Timestamp currenttime = null;
+			BigDecimal currentlat;
+			BigDecimal currentlng;
+			BigDecimal currentrate = null;
+
+			String lastlocation;
+			Timestamp lasttime = null;
+			BigDecimal lastlat;
+			BigDecimal lastlng;
+
+			Map<String, Integer> workdaystayMap = new HashMap<String, Integer>();
+			Map<String, Integer> weekendstayMap = new HashMap<String, Integer>();
+			Map<String, Integer> holidaystayMap = new HashMap<String, Integer>();
+
+			Map<String, Integer> workdaypassMap = new HashMap<String, Integer>();
+			Map<String, Integer> weekendpassMap = new HashMap<String, Integer>();
+			Map<String, Integer> holidaypassMap = new HashMap<String, Integer>();
+
+			if (rs.next()) {
+
+				String templetlocation = rs.getString("pass_port_name");
+				BigDecimal templetrate = BigDecimal.ZERO;
+
+				lastlocation = rs.getString("pass_port_name");
+				lasttime = rs.getTimestamp("pass_time");
+				lastlat = new BigDecimal(rs.getString("lat"));
+				lastlng = new BigDecimal(rs.getString("lng"));
+				Timestamp starttime = lasttime;
+
+				while (rs.next()) {
+					currentlocation = rs.getString("pass_port_name");
+					currenttime = rs.getTimestamp("pass_time");
+					currentlat = new BigDecimal(rs.getString("lat"));
+					currentlng = new BigDecimal(rs.getString("lng"));
+
+					if (currenttime.getTime() != lasttime.getTime())
+						currentrate = Rate.getRate(currentlat, currentlng, lastlat, lastlng, currenttime, lasttime);
+
+					if (currenttime.getDate() != lasttime.getDate()) {
+
+						Timestamp endtime = lasttime;
+						String time = starttime.toString() + " - " + endtime.toString();
+						System.out.println(time);
+						timeList.add(time);
+						starttime = currenttime;
+
+						if (lasttime.getDate() == 1) {
+							if (!holidaypassMap.containsKey(lastlocation)) {
+								holidaypassMap.put(lastlocation, 1);
+							} else {
+								int n = holidaypassMap.get(lastlocation);
+								holidaypassMap.put(lastlocation, ++n);
+							}
+							if (!holidaystayMap.containsKey(templetlocation)) {
+								holidaystayMap.put(templetlocation, 1);
+							} else {
+								int n = holidaystayMap.get(templetlocation);
+								holidaystayMap.put(templetlocation, ++n);
+							}
+							templetlocation = currentlocation;
+							templetrate = BigDecimal.ZERO;
+
+						} else if (currenttime.getDate() % 7 == 0 || currenttime.getDate() % 7 == 6) {
+
+							if (!weekendpassMap.containsKey(lastlocation)) {
+								weekendpassMap.put(lastlocation, 1);
+							} else {
+								int n = weekendpassMap.get(lastlocation);
+								weekendpassMap.put(lastlocation, ++n);
+							}
+							if (!weekendstayMap.containsKey(templetrate)) {
+								weekendstayMap.put(templetlocation, 1);
+							} else {
+								int n = weekendstayMap.get(templetlocation);
+								weekendstayMap.put(templetlocation, ++n);
+							}
+							templetlocation = currentlocation;
+							templetrate = BigDecimal.ZERO;
+
+						} else {
+
+							if (!workdaypassMap.containsKey(lastlocation)) {
+								workdaypassMap.put(lastlocation, 1);
+							} else {
+								int n = workdaypassMap.get(lastlocation);
+								workdaypassMap.put(lastlocation, ++n);
+							}
+
+							if (!workdaystayMap.containsKey(templetrate)) {
+								workdaystayMap.put(templetlocation, 1);
+							} else {
+								int n = workdaystayMap.get(templetlocation);
+								workdaystayMap.put(templetlocation, ++n);
+							}
+							templetlocation = currentlocation;
+							templetrate = BigDecimal.ZERO;
+
+						}
+					}
+
+					if (lasttime.getDate() == 1) {
+						if (!holidaypassMap.containsKey(lastlocation)) {
+							holidaypassMap.put(lastlocation, 1);
+						} else {
+							int n = holidaypassMap.get(lastlocation);
+							holidaypassMap.put(lastlocation, ++n);
+						}
+					} else if (currenttime.getDate() % 7 == 0 || currenttime.getDate() % 7 == 6) {
+						if (!weekendpassMap.containsKey(lastlocation)) {
+							weekendpassMap.put(lastlocation, 1);
+						} else {
+							int n = weekendpassMap.get(lastlocation);
+							weekendpassMap.put(lastlocation, ++n);
+						}
+					} else {
+
+						if (!workdaypassMap.containsKey(lastlocation)) {
+							workdaypassMap.put(lastlocation, 1);
+						} else {
+							int n = workdaypassMap.get(lastlocation);
+							workdaypassMap.put(lastlocation, ++n);
+						}
+					}
+					if (currentrate.compareTo(templetrate) == -1) {
+						templetlocation = lastlocation;
+						templetrate = currentrate;
+					}
+					lastlocation = currentlocation;
+					lasttime = currenttime;
+					lastlat = currentlat;
+					lastlng = currentlng;
+
+				}
+				rs.beforeFirst();
+
+				System.out.println("工作日常留地点：");
+				List<Entry<String, Integer>> list1 = new ArrayList<Entry<String, Integer>>(workdaystayMap.entrySet());
+
+				Collections.sort(list1, new Comparator<Map.Entry<String, Integer>>() {
+					public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+						return (o2.getValue() - o1.getValue());
+					}
+				});
+				for (int i = 0; i < list1.size() && i < 5; i++)
+					System.out.print(list1.get(i).getKey() + ":" + list1.get(i).getValue() + "\t");
+				System.out.println();
+
+				System.out.println("周末常留地点：");
+				List<Entry<String, Integer>> list2 = new ArrayList<Entry<String, Integer>>(weekendstayMap.entrySet());
+
+				Collections.sort(list2, new Comparator<Map.Entry<String, Integer>>() {
+					public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+						return (o2.getValue() - o1.getValue());
+					}
+				});
+				for (int i = 0; i < list2.size() && i < 5; i++)
+					System.out.print(list2.get(i).getKey() + ":" + list2.get(i).getValue() + "\t");
+				System.out.println();
+
+				System.out.println("假期常留地点：");
+				List<Entry<String, Integer>> list3 = new ArrayList<Entry<String, Integer>>(holidaystayMap.entrySet());
+
+				Collections.sort(list3, new Comparator<Map.Entry<String, Integer>>() {
+					public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+						return (o2.getValue() - o1.getValue());
+					}
+				});
+				for (int i = 0; i < list3.size() && i < 5; i++)
+					System.out.print(list3.get(i).getKey() + ":" + list3.get(i).getValue() + "\t");
+				System.out.println();
+
+				System.out.println("工作日常经过地点：");
+				List<Entry<String, Integer>> list4 = new ArrayList<Entry<String, Integer>>(workdaypassMap.entrySet());
+
+				Collections.sort(list4, new Comparator<Map.Entry<String, Integer>>() {
+					public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+						return (o2.getValue() - o1.getValue());
+					}
+				});
+				for (int i = 0; i < list4.size() && i < 5; i++)
+					System.out.print(list4.get(i).getKey() + ":" + list4.get(i).getValue() + "\t");
+				System.out.println();
+
+				System.out.println("周末常经过地点：");
+				List<Entry<String, Integer>> list5 = new ArrayList<Entry<String, Integer>>(weekendpassMap.entrySet());
+
+				Collections.sort(list5, new Comparator<Map.Entry<String, Integer>>() {
+					public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+						return (o2.getValue() - o1.getValue());
+					}
+				});
+
+				for (int i = 0; i < list5.size() && i < 5; i++)
+					System.out.print(list5.get(i).getKey() + ":" + list5.get(i).getValue() + "\t");
+				System.out.println();
+
+				System.out.println("节假日常经过地点：");
+				List<Entry<String, Integer>> list6 = new ArrayList<Entry<String, Integer>>(holidaypassMap.entrySet());
+				Collections.sort(list6, new Comparator<Map.Entry<String, Integer>>() {
+					public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+						return (o2.getValue() - o1.getValue());
+					}
+				});
+				for (int i = 0; i < list6.size() && i < 5; i++)
+					System.out.print(list6.get(i).getKey() + ":" + list6.get(i).getValue() + "\t");
+				System.out.println();
+			} else
+				System.out.println("车牌号输入有误或无该车牌号信息！");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("回家及上班时间：\n");
+		for (String time : timeList)
+			System.out.println(time);
+	}
+}

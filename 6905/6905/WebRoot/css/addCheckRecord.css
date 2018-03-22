@@ -1,0 +1,107 @@
+.check-info-wrap textarea{
+	    resize: vertical;
+	    width:300px;
+	    height:80px;
+        float:left;
+        font-family:Microsoft Yahei;
+	    font-size:16px;
+}
+#content{
+	border:1px solid white;
+	font-family:Microsoft Yahei;
+	font-size:18px;
+}
+.check-info-wrap1{
+	float:left;
+}
+.check-info-wrap2{
+	float:right;
+}
+.check-info-wrap1 input{
+    height:30px;
+    float:left;
+}
+
+.check-info-wrap1 label,.check-info-wrap2 label{
+	float:left;
+	width:100px;
+	margin-right:1em;
+	text-align:right;
+}
+
+.check-info-wrap1 li{
+	width:430px;
+	margin:1em auto;
+}
+.check-info-wrap2 li{
+	
+	width:430px;
+	margin:1em auto;
+}
+
+
+p.tips{
+	float:none;
+	float: none;
+    text-indent: 2em;
+    font-size: 1.3em;
+    margin-top: 1em;
+    margin-bottom:1em;
+    text-align:center;
+}
+
+.check-info-wrap,.btn-wrap{
+	width:70%;
+	min-width:860px;
+    margin:0 auto;
+    
+}
+
+.btn-wrap{
+	text-align:right;
+}
+.btn-wrap a:hover{
+	background-color:green;
+}
+.add-success,.all-record-wrap{
+	width:100%;
+	text-align: center;
+	margin-top:1.5em
+}
+
+.successinfo{
+	color:#009966;
+	margin:1em 0;
+}
+
+.all-record-wrap{
+	margin:1.5em auto;
+	width:auto;
+	text-align:center;
+	display:inline-block;
+}
+.all-record-wrap h3{
+	font-family:Microsoft Yahei;
+	font-weight:normal;
+	font-size:1.3em;
+	margin-bottom:1em;
+}
+.all-record-wrap table{
+    border:1px solid;
+    border-collapse:collapse;
+    margin:0 auto;
+}
+.all-record-wrap table th,.all-record-wrap table td{
+	border:1px solid green;
+	padding:2px 5px;
+}
+.all-record-wrap .add-again{
+	margin-top:1em;
+	float:right;
+}
+
+p.error-tips{
+	color:red;
+	float:left;
+	margin:0;
+}

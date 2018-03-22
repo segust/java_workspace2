@@ -1,0 +1,17 @@
+package Start;
+
+import java.util.*;
+
+import model.SMS;
+import model.Words;
+
+public class Training {
+
+	ArrayList<SMS> SMSList = new ArrayList<SMS>();
+	ArrayList<Words> WordsList = new ArrayList<Words>();
+
+	public Training(ArrayList<SMS> SMSList) {
+		this.SMSList = SMSList;
+	}
+
+}

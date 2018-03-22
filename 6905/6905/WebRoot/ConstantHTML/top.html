@@ -1,0 +1,25 @@
+<div id="top">
+	<div class="top-inf">
+		<span class="companyName">welecom</span>
+		<span class="hello" id="hello"></span>
+		<span class="currentUser"><%=session.getAttribute("username")%></span>
+        <span class="top-info-btn">
+            <a id="top-info-btn-link" href="javascript:;">message</a>
+            <div class="top-info-wrap" id="top-info-wrap" >
+                <div class="top-live-icon"></div>
+
+                <ul>
+                    <li>共有<span>0</span>条记录需要维护</li>
+                    <li><a href="">去维护</a></li>
+                </ul>
+                <ul>
+                    <li>����<span>0</span>����¼��Ҫ�ֻ�</li>
+                    <li><a href="">����ȥ�鿴</a></li>
+                </ul>
+                <!-- ����<span>0</span>����Ҫά��
+                <a>���ҽ���ά��</a> -->
+            </div>
+        </span>
+		<a onclick="userLoginOut('<%=basePath%>')" class="loginout-a">checkout</a>
+	</div>
+</div>

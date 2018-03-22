@@ -1,0 +1,97 @@
+package Start;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import model.SMS;
+import model.Words;
+
+public class Training {
+	int SpamNum;
+	int HamNum;
+	double PofSpam;
+	double PofHam;
+	int SpamWordNum = 0;
+	int HamWordNum = 0;
+
+	ArrayList<SMS> SMSList = new ArrayList<SMS>();
+	HashMap<String, Words> priWordsMap = new HashMap<String, Words>();
+	HashMap<String, Words> WordsMap = new HashMap<String, Words>();
+
+	public Training(ArrayList<SMS> SMSList, int SpamNum, int HamNum) {
+		this.SMSList = SMSList;
+		this.SpamNum = SpamNum;
+		this.HamNum = HamNum;
+	}
+
+	public HashMap<String, Words> getWordsMap() {
+
+		for (SMS SMS : SMSList) {
+
+			String Content = SMS.getContent().toLowerCase();
+
+			String regEx = "[^a-z]";
+			Pattern p = Pattern.compile(regEx);
+			Matcher m = p.matcher(Content);
+			String words = m.replaceAll(" ");
+			String[] Words = words.replaceAll("  ", " ").replaceAll("   ", " ").replaceAll("    ", " ")
+					.replaceAll("     ", " ").replaceAll("      ", " ").replaceAll("       ", " ").trim().split(" ");
+			for (String Word : Words) {
+				if (priWordsMap.get(Word) == null) {
+					Words word = new Words(Word);
+					word.addNum();
+					priWordsMap.put(Word, word);
+				} else {
+					priWordsMap.get(Word).addNum();
+				}
+			}
+			if (SMS.getClassify().equals("spam"))
+				SpamWordNum += Words.length;
+			else
+				HamWordNum += Words.length;
+		}
+
+		Iterator<String> priit = priWordsMap.keySet().iterator();
+		ArrayList<String> key = new ArrayList<String>();
+		while (priit.hasNext()) {
+			String word = priit.next();
+			if ((priWordsMap.get(word).getNum() != 1) && (!word.equals("")))
+				key.add(word);
+		}
+
+		Iterator<String> keyit = key.iterator();
+		while (keyit.hasNext()) {
+			String word = keyit.next();
+			WordsMap.put(word, priWordsMap.get(word));
+		}
+
+		Iterator<String> wordIt = key.iterator();
+		while (wordIt.hasNext()) {
+			String word = wordIt.next();
+			WordsMap.get(word).setHamRate((double) WordsMap.get(word).getNum() / (double) HamWordNum);
+			WordsMap.get(word).setSpamRate((double) WordsMap.get(word).getNum() / (double) SpamWordNum);
+		}
+
+		Iterator<String> it = key.iterator();
+		while (it.hasNext()) {
+			String word = it.next();
+			System.out.println(word + ":" + WordsMap.get(word).getNum() + "  " + WordsMap.get(word).getSpamRate() + "  "
+					+ WordsMap.get(word).getHamRate());
+		}
+
+		return priWordsMap;
+
+	}
+
+	public double getPofSpam() {
+		PofSpam = SpamNum / (HamNum + SpamNum);
+		return PofSpam;
+	}
+
+	public double getPofHam() {
+		PofHam = HamNum / (HamNum + SpamNum);
+		return PofHam;
+	}
+
+}

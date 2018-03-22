@@ -1,0 +1,78 @@
+package fpgrowth;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import model.vehicleDay;
+import model.vehicleMap;
+
+public class Tree {
+
+	Map<String, ArrayList<String>> IMap = vehicleMap.infoMap;
+	Map<String, ArrayList<ArrayList<String>>> IvehicleDday = vehicleDay.vehicleDayMap;
+	Map<String, List<Node>> infoMap = new HashMap<String, List<Node>>();
+	ArrayList<String> veNode;
+
+	public Tree(ArrayList<String> veNode) {
+		this.veNode = veNode;
+	}
+
+	public class Node {
+		boolean isLeaf = false;
+		String idName;
+		int count = 0;
+		ArrayList<Node> children = new ArrayList<Node>();
+		ArrayList<String> veinfo;
+
+		public Node(ArrayList<String> veinfo) {
+			this.veinfo = veinfo;
+		}
+
+		public void growth() {
+			this.idName = veinfo.get(0);
+			veinfo.remove(0);
+			addCount();
+			int i = 0;
+			boolean find = false;
+			for (; i < children.size(); i++) {
+				if (children.get(i).getIDName().equals(veinfo.get(0))) {
+					Node child = new Node(veinfo);
+					children.add(child);
+					find = true;
+				}
+			}
+			if (find) {
+				if (veinfo.size() == 1) {
+					Node child = new Node(veinfo);
+					child.setIsLeaf(true);
+					children.add(child);
+				} else {
+					Node child = new Node(veinfo);
+					children.add(child);
+				}
+			}
+		}
+
+		public void addCount() {
+			count++;
+		}
+
+		public String getIDName() {
+			return idName;
+		}
+
+		public int getCount() {
+			return count;
+		}
+
+		public void setIsLeaf(boolean isLeaf) {
+			this.isLeaf = isLeaf;
+		}
+
+		public boolean isLeaf() {
+			return isLeaf;
+		}
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;JDBC.java&apos; to &apos;DecisionTree/src/util&apos;&#x0D;&#x0A;－ 原始项目：“NaiveBayes”&#x0D;&#x0A;－ 目标元素：“DecisionTree/src/util”&#x0D;&#x0A;－ 原始元素：“util.JDBC.java”" description="复制编译单元" destination="=DecisionTree/src&lt;util" element1="/src&lt;util{JDBC.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1489996671679" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,13 @@
+package cqupt.util;
+
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+/**
+ * @author
+ * @date 2017年8月22日 下午8:59:39
+ * @parameter
+ */
+public class getRate {
+	public static BigDecimal getRate(BigDecimal beginlat,BigDecimal beginlng,BigDecimal endlat,BigDecimal endlng,Timestamp begintime,Timestamp endtime)
+}

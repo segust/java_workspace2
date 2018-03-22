@@ -1,0 +1,22 @@
+package model;
+
+public class vehicle {
+	int num = 0;
+	String id;
+
+	public vehicle(String id) {
+		id = this.id;
+	}
+
+	public void add() {
+		this.num++;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public String getId() {
+		return id;
+	}
+}

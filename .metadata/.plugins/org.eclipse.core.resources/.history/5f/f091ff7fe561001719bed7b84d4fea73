@@ -1,0 +1,29 @@
+package MainClass;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import dao.DBConnection;
+
+public class MainClass {
+	public MainClass() {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stm = con.createStatement();
+			ResultSet rs;
+			ResultSet result;
+			String SQL = "select license_no,pass_port,pass_time from `501s` order by license_no,pass_time";
+			rs = stm.executeQuery(SQL);
+			while(rs.next()&&!rs.getString("license_no").equals("未知")){
+				String lastLicense_no="";
+				if(!rs.getString("license_no").equals(lastLicense_no)){
+					result=stm.executeQuery("insert into `501test` values("+rs.getString("license_no")+rs.getString("pass_port")+rs.getString("pass_time")+")")
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

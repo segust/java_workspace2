@@ -1,0 +1,42 @@
+package vehicleMap;
+
+import java.sql.*;
+import java.util.*;
+
+import dao.DBConnection;
+import model.vehicle;
+
+public class vehicleMap {
+	Connection con = DBConnection.getConnection();
+	Statement stm = null;
+	ResultSet rs;
+
+	Map<String, vehicle> vehicleMap = new HashMap<String, vehicle>();
+
+	private ResultSet getVehicleHistory() {
+		try {
+			stm = con.createStatement();
+			String SQL = "select * from vehicle_history";
+			rs = stm.executeQuery(SQL);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.closeConnection(stm, con);
+		}
+		return rs;
+	}
+
+	public Map<String, HashSet<String>> getVehicleMap() {
+		ResultSet rs = getVehicleHistory();
+		try {
+			while (rs.next()) {
+				if (vehicleMap.containsKey(rs.getString("license_no"))) {
+
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vehicleMap;
+	}
+}

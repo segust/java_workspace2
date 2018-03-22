@@ -1,0 +1,516 @@
+#content {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+
+#search-box {
+	margin: 10px 0px 0px 30px;
+	/* background-color: #009966; */
+	width: 90%;
+	height: 100px;
+	color: black;
+	line-height: 30px;
+	display: block;
+	/* padding-left: 70px; */
+}
+
+#search-box input {
+	margin-left: 5px;
+}
+
+#search-box [type="checkbox"] {
+	margin-right: 20px;
+}
+
+#search-box p {
+	margin-top: 10px;
+}
+
+#jds-search-box {
+	margin: 20px auto;
+	background-color: #009966;
+	width: 1150px;
+	height: 95px;
+	color: white;
+	line-height: 30px;
+	padding-left: 70px;
+}
+
+.search-btn,.add-btn,.export-btn {
+	border: 0px none;
+	background-color: #3CB371;
+	color: white;
+	width: 100px;
+	height: 25px;
+	font-weight: bold;
+}
+
+.unable-export-btn {
+	border: 0px none;
+	background-color: #F0F0F0;
+	color: #000000;
+	width: 100px;
+	height: 25px;
+	margin-left: 30px;
+	font-weight: bold;
+}
+
+.jds-btn {
+	margin-left: 200px;
+}
+
+.btn {
+	margin-left: 50px;
+}
+
+.search-btn:hover,.add-btn:hover,.export-btn:hover,.return-btn:hover,.upload-btn:hover
+	{
+	cursor: pointer;
+	background-color: #009933;
+}
+
+.search-box .title {
+	font-size: 25px;
+	float: left;
+	padding-left: 50px;
+}
+
+.fare-data {
+	width: 100%;
+	height: auto;
+	display: block; <!--
+	color: #FFFFFF;
+	-->
+}
+
+#fare-table {
+	color: black;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid green;
+}
+
+.fare-table-checkbox {
+	background-color: #009966;
+}
+
+.fare-table-other-th {
+	background-color: #009966;
+	padding: 5px;
+	width: 100px;
+	border: 1px solid green;
+	color: white;
+}
+
+.fare-table-num-th {
+	background-color: #009966;
+	padding: 5px;
+	width: 70px;
+	border: 1px solid green;
+	color: white;
+}
+
+#fare-table td {
+	border: 1px solid green;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.fare-table a {
+	font-size: 13px;
+}
+
+.fare-table a:hover {
+	color: red;
+}
+
+#fare-table-box {
+	margin: 50px;
+}
+
+.add-top {
+	width: 100%;
+	height: 50px;
+	display: block;
+	font-size: 30px;
+	line-height: 50px;
+	margin-top: 20px;
+}
+
+.add-top title {
+	float: left;
+	color: white;
+	height: 50px;
+	display: block;
+	font-size: 20px;
+	line-height: 50px;
+	margin-left: 40px;
+}
+
+.op {
+	height: 50px;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.submit-btn,.reset-btn,.return-btn {
+	background-color: #3CB371;
+	color: white;
+	width: 80px;
+	height: 25px;
+	font-weight: bold;
+	margin-left: 5px;
+	margin-right: 10px;
+	cursor: pointer;
+	border: 0px none;
+}
+
+.export-fare-a {
+	background-color: #3CB371;
+	color: white;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+	margin-right: 10px;
+	border: 0px none;
+	display: block;
+	float: right;
+	text-align: center;
+}
+
+.export-fare-a:hover {
+	background-color: #009933;
+	cursor: pointer;
+}
+
+.faredetail-submit-btn {
+	background-color: #3CB371;
+	color: white;
+	width: 130px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	margin-right: 20px;
+	cursor: pointer;
+	border: 0px none;
+	display: block;
+	float: left;
+}
+
+.faredetail-return-btn {
+	background-color: #3CB371;
+	color: white;
+	width: 130px;
+	height: 25px;
+	line-height: 25px;
+	display: block;
+	float: left;
+	font-size: 14px;
+	text-align: center;
+	font-weight: bold;
+	border: 0px none;
+}
+
+.faredetail-return-btn:hover {
+	background-color: #009933;
+	cursor: pointer;
+}
+
+.jds-return-btn {
+	background-color: #3CB371;
+	color: white;
+	width: 100px;
+	height: 25px;
+	/* line-height: 25px; */
+	font-weight: bold;
+	margin-left: 335px;
+	margin-right: 10px;
+	cursor: pointer;
+	border: 0px none;
+}
+
+.addDetail-btn {
+	border: 0px none;
+	background-color: #3CB371;
+	color: white;
+	width: 280px;
+	height: 25px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.addDetail-input {
+	height: 20px;
+	width: 80px;
+	font-size: 16px;
+	/* color:#2E8B57;*/
+	margin-left: 20px;
+	font-family: Microsoft Yahei;
+	text-align: center;
+}
+
+.upload-btn {
+	background-color: #3CB371;
+	color: white;
+	width: 50px;
+	height: 25px;
+	font-weight: bold;
+	margin: 10px 0px 0px 730px;
+	cursor: pointer;
+}
+
+.unable-submit-btn {
+	border: 0px;
+	background-color: #F0F0F0;
+	color: #000000;
+	width: 50px;
+	height: 25px;
+	font-weight: bold;
+	margin: 10px 0px 0px 730px;
+}
+
+.add-box {
+	width: 1200px;
+	height: auto;
+}
+
+.add-mainfare-box {
+	width: 25%;
+	height: auto;
+	display: block;
+	float: left;
+	margin-top: 20px;
+}
+
+.add-mainfare-box p {
+	font-size: 17px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.add-detailfare-box {
+	width: 880px;
+	height: auto;
+	display: block;
+	float: left;
+	margin-top: 20px;
+	margin-left: 15px;
+}
+
+.add-detailfare-box p {
+	margin-bottom: 20px;
+}
+
+.add-detailfare-box span {
+	margin-left: 10px;
+}
+
+.add-detailfare-box [type="text"] {
+	height: 20px;
+	font-size: 16px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.add-detail-bottom-p {
+	width: 865px;
+	margin-left: 10px;
+	border-bottom: 1px dotted green;
+}
+
+.delete-icon {
+	width: 16px;
+	height: 23px;
+	display: block;
+	float: left;
+	background: url("../../img/fare_management/iconfont-delete.png") 0px 3px
+		no-repeat;
+}
+
+.delete-icon:hover {
+	cursor: pointer;
+}
+
+.small-text-input {
+	width: 120px;
+	height: 20px;
+	font-size: 16px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.big-text-input {
+	width: 372px;
+	height: 20px;
+	font-size: 16px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.add-box-input {
+	height: 20px;
+	font-size: 16px;
+	margin-left: 20px;
+	font-family: Microsoft Yahei;
+	text-align: center;
+}
+
+.add-box select {
+	width: 175px;
+	height: 25px;
+	font-size: 16px;
+	margin-left: 20px;
+	font-family: Microsoft Yahei;
+}
+
+.add-box[type="submit"],.add-box[type="button"] {
+	border: 0px solid red;
+	color: white;
+	font-weight: bold;
+	width: 50px;
+}
+
+.add-box[type="submit"]:hover,.add-box [type="button"]:hover,.add-box [type="reset"]:hover
+	{
+	background-color: #009933;
+	cursor: pointer;
+}
+
+.edit-box p { /*border:1px solid;*/
+	font-size: 17px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.edit-box-input {
+	height: 20px;
+	font-size: 16px;
+	color: black;
+	margin-left: 20px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+}
+
+.edit-box [type="submit"].edit-box [type="button"] {
+	/*border:0px solid red;*/
+	background-color: #2E8B57;;
+	color: white;
+	font-weight: bold;
+	width: 50px;
+}
+
+.edit-box [type="submit"]:hover,.edit-box [type="button"]:hover {
+	background-color: #009933;
+}
+
+.file-list-box {
+	background: #FFFFFF;
+	width: 100%;
+}
+
+.file-table-box {
+	margin: 50px auto;
+	width: 80%;
+}
+
+.file-list-box table {
+	border-collapse: collapse;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+	border-color: #666666;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.file-list-box th {
+	width: 180px;
+	border: 1px solid green;
+	padding: 5px;
+	color: white;
+}
+
+.file-list-box td {
+	border: 1px solid green;
+	padding: 5px;
+	color: black;
+}
+
+.file-list-box-td-small {
+	width: 40px;
+}
+
+.file-btn-box {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.file-list-box input {
+	font-family: Microsoft Yahei;
+}
+
+.del-btn {
+	border: 0px black;
+	color: black;
+	width: 50px;
+	height: 25px;
+	font-weight: bold;
+	margin: 10px 0 0 10px;
+	cursor: pointer;
+}
+
+.choose-fareType-text {
+	width: 300px;
+	font-size: 16px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.upload {
+	color: #009966;
+	font-family: Microsoft Yahei;
+	font-size: 20px;;
+}
+
+.upload span {
+	font-size: 50px;
+	color: blue;
+}
+
+.upload-table {
+	border: 1px solid #8F9490;
+	margin: 45px auto;
+	height: 300px;
+	width: 600px;
+}
+
+.upload td {
+	padding-left: 200px;
+}
+
+.upload a {
+	text-decoration: underline;
+	padding-left: 30px;
+}
+
+.download-btn {
+	font-size: 13px;
+	border: 1px solid gray;
+	padding: 2px 5px;
+	color: black;
+	margin-right: 10px;
+}
+
+.download-btn:hover {
+	color: white;
+	background-color: #009933;
+	cursor: pointer;
+}

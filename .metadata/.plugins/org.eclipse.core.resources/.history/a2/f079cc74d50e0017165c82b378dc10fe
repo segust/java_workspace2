@@ -1,0 +1,7 @@
+package model;
+
+public class patient {
+public patient(int age,int prescription,int astigmatic,int tearrate,int contactlenses) {
+	
+}
+}

@@ -1,0 +1,124 @@
+package model;
+
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.*;
+
+/**
+ * @author
+ * @date 2017年7月14日 上午9:25:39
+ * @parameter
+ */
+public class RegularPointstmp {
+
+	ResultSet rs = null;
+
+	public RegularPointstmp(ResultSet rs) {
+		this.rs = rs;
+	}
+
+	@SuppressWarnings("deprecation")
+	public void getRegularPoints() throws SQLException {
+
+		String currentlocation;
+		Timestamp currenttime = null;
+		BigDecimal currentlat;
+		BigDecimal currentlng;
+		BigDecimal currentrate = null;
+
+		String lastlocation;
+		BigDecimal lastrate;
+		Timestamp lasttime = null;
+		BigDecimal lastlat;
+		BigDecimal lastlng;
+
+		Map<String, Integer> workdaystayMap = new HashMap<String, Integer>();
+		Map<String, Integer> weekendstayMap = new HashMap<String, Integer>();
+		Map<String, Integer> holidaystayMap = new HashMap<String, Integer>();
+
+		Map<String, Integer> workdaypassMap = new HashMap<String, Integer>();
+		Map<String, Integer> weekendpassMap = new HashMap<String, Integer>();
+		Map<String, Integer> holidaypassMap = new HashMap<String, Integer>();
+
+		rs.next();
+
+		String templetlocation = rs.getString("pass_port_name");
+		BigDecimal templetrate = BigDecimal.ZERO;
+
+		lastlocation = rs.getString("pass_port_name");
+		lastrate = BigDecimal.ZERO;
+		lasttime = rs.getTimestamp("pass_time");
+		lastlat = new BigDecimal(rs.getString("lat"));
+		lastlng = new BigDecimal(rs.getString("lng"));
+
+		if (lasttime.getDate() == 1) {
+			holidaypassMap.put(lastlocation, 1);
+		} else if (lasttime.getDate() % 7 == 0 || lasttime.getDate() % 7 == 6) {
+			weekendpassMap.put(lastlocation, 1);
+		} else {
+			workdaypassMap.put(lastlocation, 1);
+		}
+
+		while (rs.next()) {
+			currentlocation = rs.getString("pass_port_name");
+			currenttime = rs.getTimestamp("pass_time");
+			currentlat = new BigDecimal(rs.getString("lat"));
+			currentlng = new BigDecimal(rs.getString("lng"));
+			currentrate = (currentlat.subtract(lastlat).pow(2)).add(currentlng.subtract(lastlng).pow(2))
+					.divide(new BigDecimal(currenttime.getTime() - lasttime.getTime()), 3);
+			if (currenttime.getDate() == 1) {
+				if (!holidaypassMap.containsKey(currentlocation)) {
+					holidaypassMap.put(currentlocation, 1);
+				} else {
+					int n = holidaypassMap.get(currentlocation);
+					holidaypassMap.put(currentlocation, 1);
+				}
+				if (currenttime.getDate() != lasttime.getDate()) {
+					if (!holidaystayMap.containsKey(templetrate)) {
+						holidaystayMap.put(templetlocation, 1);
+					} else {
+						int n = holidaystayMap.get(templetlocation);
+						holidaystayMap.put(templetlocation, n++);
+					}
+					templetlocation = currentlocation;
+					templetrate = BigDecimal.ZERO;
+				}
+				if (currentrate.compareTo(templetrate) == -1) {
+					templetlocation = lastlocation;
+					templetrate = lastrate;
+				}
+				lastlocation = currentlocation;
+				lastrate = currentrate;
+				lasttime = currenttime;
+				lastlat = currentlat;
+				lastlng = currentlng;
+
+			} else if (currenttime.getDate() % 7 == 0 || currenttime.getDate() % 7 == 6) {
+
+			}
+
+		}
+
+		String weekendsql = "select license_no,pass_time,pass_port_name,COUNT(*)as count from (SELECT * from `test` WHERE EXTRACT(DAY FROM pass_time)%7=0 OR EXTRACT(DAY FROM pass_time)%7=6 AND EXTRACT(DAY FROM pass_time)<>1) f GROUP BY license_no,pass_port ORDER BY count DESC";
+		System.out.println("周末常去地点：");
+		int looptime2 = 0;
+		while (rs.next()) {
+			looptime2++;
+			if (looptime2 < 5)
+				System.out.print(rs.getString("pass_port_name") + ":" + rs.getInt("count") + "\t");
+			System.out.println();
+
+			String holidaysql = "select license_no,pass_time,pass_port_name,COUNT(*)as count from (SELECT * from `test` where EXTRACT(DAY FROM pass_time)=1) f GROUP BY license_no,pass_port ORDER BY count DESC";
+			System.out.println("假期常去地点：");
+			int looptime3 = 0;
+			while (rs.next()) {
+				looptime3++;
+				if (looptime3 < 3)
+					System.out.print(rs.getString("pass_port_name") + ":" + rs.getInt("count") + "\t");
+				System.out.println();
+			}
+		}
+	}
+}

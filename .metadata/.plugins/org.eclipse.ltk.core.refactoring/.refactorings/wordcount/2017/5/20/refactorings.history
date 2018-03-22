@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将编译单元“wordcount.eqwe.java”重命名为“cWordCount.java”&#x0D;&#x0A;－ 原始项目：“wordcount”&#x0D;&#x0A;－ 原始元素：“wordcount.eqwe.java”&#x0D;&#x0A;－ 重命名的元素：“wordcount.cWordCount.java”" description="重命名编译单元“eqwe.java”" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;wordcount{eqwe.java" name="cWordCount.java" references="false" stamp="1495022133670" version="1.0"/>
+</session>

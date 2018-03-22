@@ -1,0 +1,17 @@
+package Start;
+
+import java.util.HashMap;
+
+import model.Example;
+import model.Node;
+
+public class RuntheTree {
+	Node tree;
+	HashMap<String, String> example;
+
+	public RuntheTree(Node tree, HashMap<String, String> example) {
+		this.tree = tree;
+		this.example = example;
+	}
+
+}

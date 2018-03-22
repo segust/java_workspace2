@@ -1,0 +1,266 @@
+.toptitle-op{
+	width:1200px;
+	height:50px;
+	overflow: hidden;
+}
+
+.temp-info{
+    width:900px;
+    height:auto;
+    display:block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.temp-table-head td{
+    background-color:#009966;
+    width:150px;
+    font-weight: bold;
+    color:white;
+}
+.temp-table td{
+    border:1px solid green;
+    padding:5px 10px 5px 10px;
+    text-align:center;
+    vertical-align:middle;
+    white-space: nowrap;
+    
+}
+.temp-table-body td{
+    width:150px;
+    font-family:Microsoft Yahei;
+}
+.temp-table{
+	color: black;
+    border-collapse:collapse;
+    margin:0 auto;
+   
+}
+
+.op-box a{	
+	background:#3CB371;
+	color:white;
+	text-align:center;
+	padding:2px 5px;
+	cursor:pointer;
+	font-size:16px;
+}
+.op-box a:hover{
+	background:#00CC99;
+}
+
+.search-btn,.add-btn{
+	border:0px;
+	background-color:#3CB376;
+	color:white;
+	width:50px;
+	height:25px;
+	font-weight:bold;
+	margin-left:5px;
+	vertical-align: middle;
+}
+
+.search-btn:hover,.add-btn:hover{
+	cursor:pointer;
+}
+
+.tem-box{
+	float:left;
+	font-size: 16px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.tem-box input{
+	width:30px;
+	height:20px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+.tim-box{
+	float:left;
+	font-size: 16px;
+	margin-left: 150px;
+	margin-right: 10px;
+}
+
+.tim-box input{
+	width:150px;
+	height:20px;
+	vertical-align: middle;
+}
+
+.op-box{
+	float:left;
+	font-size: 20px;
+	height: 50px;
+}
+
+.btn{
+    border:0;
+    background-color:#3CB371;
+    color:white;
+    width:100px;
+    height:25px;
+    line-height:25px;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.smallbtn{
+    border:0;
+    background-color:#3CB371;
+    color:white;
+    width:50px;
+    height:25px;
+    vertical-align:middle;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.btn:hover{
+	background-color: #009933;
+}
+
+.smallbtn:hover{
+	background-color: #009933;
+}
+
+.tem-data{
+	/*border:1px solid red;*/
+	height:90%;
+	overflow-y:auto;
+	/*display:none;*/
+	/*border:1px solid;*/
+}
+
+.tem-graph-wrapper{
+	/*border:1px solid;*/
+	overflow:hidden;
+	background-color:white;
+	position:relative;
+}
+
+#tem-graph{
+	width:600px;
+	height:400px;
+	float:left;
+	/*display:none;*/
+	/*border:1px solid #0099CC;*/
+}
+
+.tem-graph-wrapper{
+	margin:20px auto;
+	/*border:1px solid red;*/
+	width:800px;
+	position:relative;
+}
+
+.tem-graph-wrapper .day{
+	position:absolute;
+	bottom: 0;
+	left:610px;
+}
+
+.tem-graph-wrapper .day p{
+	padding:5px;
+	background-color:#0099CC;
+	color:white;
+}
+
+.tem-graph-wrapper .day p span{
+	padding-left: 10px;
+}
+
+.add-box{
+	width: 30%;
+	margin: 0 auto;
+	color:black;
+	border: 1px solid gray;
+}
+
+.add-box p{
+	font-size:18px;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.add-box input{
+	font-size:17px;
+	height:20px;
+	margin-left:20px;
+	font-family: "Microsoft Yahei";
+}
+
+.add-box [type="submit"],.add-box [type="reset"],.add-box [type="button"]{
+	border:0px;
+    background-color:#3CB371;
+    color:white;
+    width:50px;
+    height:25px;
+    margin-left:20px;
+    font-size:14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-box [type="submit"]:hover,.add-box [type="reset"]:hover,.add-box [type="button"]:hover{
+	background-color:#009933;	
+}
+
+.tem-box input,.tim-box input{
+	border:1px solid #009966;
+}
+
+#tem-chart-container,#humi-chart-container{
+	width:700px;
+	height:400px;
+	border:2px solid green;
+	margin:20px auto;
+	display:none;
+}
+
+.search-update-box{
+	width:50%;
+	height:auto;
+	margin:100px auto 0px auto;
+	color: black;
+	display: none;
+}
+
+.preupdate-info-box{
+	width: 50%;
+	height: auto;
+	float: left;
+}
+
+.nowupdate-info-box{
+	width: 50%;
+	height: auto;
+	float: left;
+}
+
+.search-update-box p,h4{
+	padding: 10px 0px 10px 0px;
+}
+
+.search-update-box span{
+	width: 200px;
+	height: auto;
+	padding-left: 10px;
+}
+
+.getrecord-way-box{
+	height: 25px;
+	line-height:25px;
+	margin-top: 20px;
+	color: black;
+	text-align: right;
+}
+
+.getrecord-way-box span{
+	margin: 0px 20px 0px 20px;
+}

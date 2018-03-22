@@ -1,0 +1,18 @@
+package test;
+
+/**
+ * @author
+ * @date 2017年7月24日 下午4:27:56
+ * @parameter
+ */
+public class tst {
+	public static void main(String[] args) {
+		int count = 1;
+		for (int i = 1; i < 7; i++) {
+			for (int j = 1; j < 32; j++) {
+				System.out.println("(select distinct(pass_port),lat,lng from `" + (i * 100 + j)
+						+ "` where data_source<>'HW' and data_source<>'SC%')f" + count + " union all");
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+package model;
+
+import java.util.HashMap;
+
+public class Example {
+
+	String outlook;
+	String temperature;
+	String humidity;
+	String windy;
+	public String play;
+	HashMap<String, String> map = new HashMap<String, String>();
+
+	public Example(String[] e) {
+		map.put(outlook, e[0]);
+		map.put(temperature, e[1]);
+		map.put(humidity, e[2]);
+		map.put(windy, e[3]);
+		map.put(play, e[4]);
+	}
+
+	public String geValue(String attribute) {
+		return map.get(attribute);
+	}
+
+	public void removeAttribute(String attribute) {
+		map.remove(attribute);
+	}
+}

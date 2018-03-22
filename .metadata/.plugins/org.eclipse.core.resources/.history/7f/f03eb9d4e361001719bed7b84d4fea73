@@ -1,0 +1,7 @@
+package MainClass;
+
+public class MainClass {
+	public MainClass() {
+		// TODO 自动生成的构造函数存根
+	}
+}

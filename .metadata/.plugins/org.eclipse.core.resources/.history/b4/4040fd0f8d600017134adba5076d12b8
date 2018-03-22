@@ -1,0 +1,44 @@
+package model;
+
+import java.sql.*;
+import java.util.*;
+
+import dao.DBConnection;
+import util.Txt;
+
+/**
+ * 第一次遍历，获取HeaderTable
+ * 
+ * @author segust
+ *
+ */
+public class vehicleMap {
+
+	public static Map<String, ArrayList<String>> infoMap = new HashMap<String, ArrayList<String>>();
+	Connection con = DBConnection.getConnection();
+	Statement stm = null;
+	ResultSet rs;
+
+	Map<String, ArrayList<String>> vehicleMap = new HashMap<String, ArrayList<String>>();
+
+	public void getVehicleMap() {
+		try {
+			Txt txt = new Txt("vehicleMap");
+			stm = con.createStatement();
+//			for (int i = 501; i < 523; i++) {
+//				while (i != 505) {
+					String SQL = "select * from `501`";
+					rs = stm.executeQuery(SQL);
+					while (rs.next()&&！rs.getString("license_no").equals("未知"))
+						txt.writeTxtFile(rs.getString("license_no") + ":" + rs.getString("pass_port"));
+
+//				}
+//			}
+			txt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.closeConnection(stm, con);
+		}
+	}
+}

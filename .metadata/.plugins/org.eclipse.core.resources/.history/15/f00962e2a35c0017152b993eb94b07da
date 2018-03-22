@@ -1,0 +1,25 @@
+package model;
+
+import java.util.LinkedHashSet;
+
+public class vehicle {
+	int num = 0;
+	String id;
+	ArrayList<pass_port> VehicleHistory = new ArrayList<pass_port>();
+
+	public vehicle(String id) {
+		id = this.id;
+	}
+
+	public void add() {
+		this.num++;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public String getId() {
+		return id;
+	}
+}

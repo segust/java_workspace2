@@ -1,0 +1,7 @@
+package vehicleMap;
+
+import java.util.*;
+
+public class vehicleMap {
+	Map<String, Set<String>> vehicleMap = new HashMap<String, HashSet<String>>();
+}

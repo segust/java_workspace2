@@ -1,0 +1,36 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import cqupt.db.DBManager;
+
+/**
+ * @author
+ * @date 2017年7月16日 下午3:26:22
+ * @parameter
+ */
+public class Location {
+	String license_no;
+
+	Connection conn = null;
+	ResultSet rs = null;
+	Statement st = null;
+
+	public Location(String license_no) {
+		this.license_no = license_no;
+	}
+
+	private void getLocation() {
+		try {
+			String localsql = "select * from 'test'";
+			conn = DBManager.getConnection();
+			st = conn.createStatement();
+			rs = st.executeQuery(localsql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

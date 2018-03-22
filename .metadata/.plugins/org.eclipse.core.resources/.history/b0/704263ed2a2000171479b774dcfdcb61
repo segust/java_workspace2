@@ -1,0 +1,119 @@
+package model;
+
+import java.util.*;
+import util.calSet;
+
+public class Apriori {
+
+	int support;// 支持度
+	calSet calSet = new calSet();
+	Set<Set<Integer>> InitialData = new HashSet<Set<Integer>>();// 初始数据
+	Map<Set<Set<Integer>>, Integer> SupportTable = new HashMap<Set<Set<Integer>>, Integer>();
+	Set<Set<Integer>> DustBin;
+	Set<Set<Integer>> newDustBin;
+
+	public Apriori(Set<Set<Integer>> InitialData, String support) {
+		this.InitialData = InitialData;
+		this.support = Integer.parseInt(support);
+	}
+
+	public void apriori() {
+		HashMap<Set<Integer>, Integer> orgSupportTable = getSupportTable(InitialData);
+		DustBin = new HashSet<Set<Integer>>();
+		HashMap<Set<Integer>, Integer> iniSupportTable = trim(orgSupportTable, DustBin);
+		Set<Set<Integer>> Canditate = getNewCanditate(iniSupportTable);
+		Map<Set<Integer>, Integer> newSupportTable = getNewSupportTable(Canditate);
+		for (Map.Entry<Set<Integer>, Integer> entry : newSupportTable.entrySet()) {
+			System.out.println("支持度列表：");
+			for (Integer att : entry.getKey()) {
+				System.out.print(att + "  ");
+			}
+			System.out.println(":" + entry.getValue());
+		}
+	}
+
+	// 获取初始数据的支持度列表//获取原始数据的支持度列表
+	HashMap<Set<Integer>, Integer> getSupportTable(Set<Set<Integer>> iniData) {
+		HashMap<Set<Integer>, Integer> SupportTable = new HashMap<Set<Integer>, Integer>();
+		for (Set<Integer> example : iniData) {// 遍历初始数据每一行
+			for (Integer att : example) {// 遍历初始数据每一个属性
+				Set<Integer> attribute = new HashSet<Integer>();
+				attribute.add(att);
+				if (SupportTable.containsKey(attribute)) {
+					Integer value = SupportTable.get(attribute);
+					SupportTable.put(attribute, ++value);
+				} else {
+					SupportTable.put(attribute, 1);
+				}
+			}
+		}
+		return SupportTable;
+	}
+
+	// 去除支持度列表中上从一支持度列表中已知非频繁的数据和支持度不够的数据
+	HashMap<Set<Integer>, Integer> trim(HashMap<Set<Integer>, Integer> SupportTable, Set<Set<Integer>> DustBin) {
+
+		newDustBin = new HashSet<Set<Integer>>();
+		HashMap<Set<Integer>, Integer> newSupportTable = new HashMap<Set<Integer>, Integer>();
+
+		// 除去从上一频繁集中发现的非频繁项
+		Set<Set<Integer>> keySet = SupportTable.keySet();
+		for (Set<Integer> key : keySet) {
+			for (Set<Integer> dust : DustBin) {
+				if (key.containsAll(dust)) {
+					newDustBin.add(key);
+					SupportTable.remove(key);
+				}
+			}
+		}
+		// 除去本频繁集中支持度不够的项
+		for (Map.Entry<Set<Integer>, Integer> entry : SupportTable.entrySet())
+			if (entry.getValue() > support)
+				newSupportTable.put(entry.getKey(), entry.getValue());
+
+		return newSupportTable;
+	}
+
+	// 从上一层支持度列表中获取新的候选集
+
+	// 通过上一级支持度列表组合出新的候选集
+	Set<Set<Integer>> getNewCanditate(HashMap<Set<Integer>, Integer> SupportTable) {
+
+		Set<Set<Integer>> Canditate = new HashSet<Set<Integer>>();
+
+		Set<Set<Integer>> keySet = SupportTable.keySet();
+		Set<Set<Integer>> assSet=new HashSet<Set<Integer>>();
+		for (Set<Integer> mainkey : keySet) {
+			Set<Set<Integer>> helpSet = SupportTable.keySet();
+			assSet.add(mainkey);
+			helpSet.removeAll(assSet);
+			for (Set<Integer> elsekey : helpSet) {
+				if (calSet.matching(mainkey, elsekey)) {
+					mainkey.add(calSet.getLastValue(elsekey));
+					Canditate.add(mainkey);
+				}
+			}
+		}
+		return Canditate;
+	}
+
+	// 从候选集中获取新的支持度列表
+
+	// 获取候选集支持度列表
+	Map<Set<Integer>, Integer> getNewSupportTable(Set<Set<Integer>> Candidate) {
+		Map<Set<Integer>, Integer> NewSupportTable = new HashMap<Set<Integer>, Integer>();
+		for (Set<Integer> attribute : Candidate) {
+			for (Set<Integer> example : InitialData) {
+				if (example.containsAll(attribute)) {
+					if (NewSupportTable.containsKey(attribute)) {
+						int num = NewSupportTable.get(attribute);
+						NewSupportTable.put(attribute, num++);
+					} else {
+						NewSupportTable.put(attribute, 1);
+					}
+				}
+			}
+		}
+		return NewSupportTable;
+	}
+}

@@ -1,0 +1,7 @@
+1496322999582	Rename field 'doc'
+1496371093547	Delete element
+1496372078457	Delete element
+1496372101484	Rename package 'model'
+1496372926079	Rename type 'WordCount'
+1496372948578	Rename type 'DBreduce'
+1496372965763	Rename type 'IntSumReducer'

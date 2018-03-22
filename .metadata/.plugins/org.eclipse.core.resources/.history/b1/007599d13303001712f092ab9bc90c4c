@@ -1,0 +1,21 @@
+package Start;
+
+import java.util.*;
+
+import model.SMS;
+import model.Words;
+
+public class Bayes {
+
+	ArrayList<Words> WordsList = new ArrayList<Words>();
+	ArrayList<SMS> SMSList = new ArrayList<SMS>();
+
+	public Bayes(ArrayList<SMS> SMSList) {
+		this.WordsList = WordsList;
+	}
+
+	public ArrayList<Words> init() {
+		this.SMSList = SMSList;
+
+	}
+}
